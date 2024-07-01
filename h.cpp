@@ -5,6 +5,8 @@ protected:
     string name, quality, resolution;
     bool spatialAudio;
     int devicesSameTime, downloadDevices;
+
+
 public:
     Plan(string name, double price, string qual, string resol, bool spatialAud, int devicesametime, int download):
     name(name),precio(price), quality(qual), resolution(resol), spatialAudio(spatialAud),
@@ -193,6 +195,7 @@ void menuInicio(vector<Usuario>&usuarios){
         opcionMenu(opc,usuarios);
     } while (opc !=1 && opc !=2);
 }
+
 int main(){
     vector<Usuario> usuarios;
     Plan* premiu = new Premium();
