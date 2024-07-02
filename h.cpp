@@ -33,21 +33,29 @@ struct Basic : virtual public Plan{
 };
 
 class Usuario{
-    string email, password;
+    string nombre, email, password;
     Plan *plan;
 public:
     Usuario() {}
-    Usuario(string mail, string pass, Plan* p){
+    Usuario(string nombre, string mail, string pass, Plan* p){
+        this->nombre=std::move(nombre);
         this->email = std::move(mail);
         this->password = std::move(pass);
         this->plan=p;
     }
     ~Usuario(){delete plan;plan= nullptr;}
+    string getNombre()const{return nombre;}
     string getMail()const{return email;}
     string getPass()const{return password;}
+    string setNombre()const{return nombre;}
     const Plan& getPlan()const{return *plan;}
     void setPlan(Plan *p) {Usuario::plan = p;}
 };
+bool verificarNombre(const string &nombre){
+    bool verify= nombre.size()>=2;
+    if (!verify) cout<<"* El nombre debe tener mas de 1 caracter!"<<endl;
+    return verify;
+}
 bool verificarCorreo(const string& correo) {
     bool verify = correo.find('@') != string::npos;
     if (!verify) cout << "* Correo invalido!" << endl;
@@ -58,6 +66,7 @@ bool verificarContra(const string& contra) {
     if (!verify) cout << "* La contrasena debe tener entre 8 a 60 caracteres!" << endl;
     return verify;
 }
+
 void FAKEpaysimulation(Plan plan){
     string numTarjeta, fecha;
     cout<<"\n- - - - - - - - - - - - - - - - - - - - - -\n|                                         |"<<endl;
@@ -121,11 +130,15 @@ void imprimirPlanes(const vector<Plan*>&planes){
     }
 }
 Usuario Registrar(){
-    string email, contra;
+    string nombre, email, contra;
     cout<<"\n- - - - - - - - - - - - - - - - - - - - - -\n"
           "|                                         |"<<endl;
     cout<<"|               PASO 1 de 3               |"<<endl;
-    cout<<"| Ingrese su email para crear una cuenta  |"<<endl;
+    cout<<"| Ingrese su nombre para crear una cuenta |"<<endl;
+    do {
+        cout<<"| >>", cin>>nombre;
+    } while (!verificarNombre(nombre));
+    cout<<"| Ingrese su email                        |"<<endl;
     do {
         cout<<"| >>", cin>>email;
     } while (!verificarCorreo(email));
@@ -140,11 +153,11 @@ Usuario Registrar(){
     vector<Plan*> planes = { new Premium(), new Standard(), new Basic() };
     imprimirPlanes(planes);
     cout<<"|                                         |"<<endl;
-    Usuario usuario(email, contra, nullptr);
+    Usuario usuario(nombre,email, contra, nullptr);
     selectPlan(&usuario);
     return usuario;
 }
-void IniciarSesion(vector<Usuario>users){
+void IniciarSesion(vector<Usuario>&users){
     string mail;
     bool check1= false,check2= false;
     cout<<"\n- - - - - - - - - - - - - - - - - - - - - -"<<endl;
@@ -167,18 +180,22 @@ void IniciarSesion(vector<Usuario>users){
     } while (!check2);
     cout<<"MOSTRAR COSO DE NETFLIX"<<endl;
 }
-void opcionMenu(int op, vector<Usuario>& usuarios) {
+void opcionMenu(double op, vector<Usuario>& usuarios) {
     if (op == 1){
         cout<<"- - - - - - - - - - - - - - - - - - - - - -"<<endl;
         Usuario nuevouser=Registrar();
         usuarios.push_back(nuevouser);
+        cout<<"- - - - - - - - - - - - - - - - - - - - - -"<<endl;
+        cout<<"|> Usuari@ "<<nuevouser.getNombre()<<" registrado con exito"<<endl;
+        cout<<"- - - - - - - - - - - - - - - - - - - - - -"<<endl;
+        IniciarSesion(usuarios);
     }
     else if (op == 2){
         cout<<"- - - - - - - - - - - - - - - - - - - - - -"<<endl;
         IniciarSesion(usuarios);
     }
     else{
-        cout<<"|       Opcion invalida       |"<<endl;
+        cout<<"|             Opcion invalida             |"<<endl;
         cout<<"| >>";
     }
 }
@@ -199,7 +216,7 @@ void menuInicio(vector<Usuario>&usuarios){
 int main(){
     vector<Usuario> usuarios;
     Plan* premiu = new Premium();
-    Usuario user1("usuario@mail.com","pass1234",premiu);
+    Usuario user1("usuario","usuario@mail.com","pass1234",premiu);
     usuarios.push_back(user1);
     menuInicio(usuarios);
 

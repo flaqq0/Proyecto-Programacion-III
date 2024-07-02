@@ -3,11 +3,5 @@ project(proyecto)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(proyecto
-        main.cpp
-        Pelicula.cpp
-        bd.cpp
-        buscador.cpp
-        Utilidades.cpp
-)
-
+add_executable(a h.cpp librerias.h)
+add_executable(pt2 bd.cpp bd.h buscador.cpp buscador.h utilidades.cpp utilidades.h)
