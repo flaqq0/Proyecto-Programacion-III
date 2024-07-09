@@ -212,14 +212,3 @@ void menuInicio(vector<Usuario>&usuarios){
         opcionMenu(opc,usuarios);
     } while (opc !=1 && opc !=2);
 }
-
-int main(){
-    vector<Usuario> usuarios;
-    Plan* premiu = new Premium();
-    Usuario user1("usuario","usuario@mail.com","pass1234",premiu);
-    usuarios.push_back(user1);
-    menuInicio(usuarios);
-
-
-    return 0;
-}

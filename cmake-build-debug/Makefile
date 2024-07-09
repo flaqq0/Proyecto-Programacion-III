@@ -129,6 +129,19 @@ a/fast:
 .PHONY : a/fast
 
 #=============================================================================
+# Target rules for targets named busqueda
+
+# Build rule for target.
+busqueda: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 busqueda
+.PHONY : busqueda
+
+# fast build rule for target.
+busqueda/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\busqueda.dir\build.make CMakeFiles/busqueda.dir/build
+.PHONY : busqueda/fast
+
+#=============================================================================
 # Target rules for targets named pt2
 
 # Build rule for target.
@@ -189,6 +202,30 @@ buscador.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/buscador.cpp.s
 .PHONY : buscador.cpp.s
 
+busqueda.obj: busqueda.cpp.obj
+.PHONY : busqueda.obj
+
+# target to build an object file
+busqueda.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\busqueda.dir\build.make CMakeFiles/busqueda.dir/busqueda.cpp.obj
+.PHONY : busqueda.cpp.obj
+
+busqueda.i: busqueda.cpp.i
+.PHONY : busqueda.i
+
+# target to preprocess a source file
+busqueda.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\busqueda.dir\build.make CMakeFiles/busqueda.dir/busqueda.cpp.i
+.PHONY : busqueda.cpp.i
+
+busqueda.s: busqueda.cpp.s
+.PHONY : busqueda.s
+
+# target to generate assembly for a file
+busqueda.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\busqueda.dir\build.make CMakeFiles/busqueda.dir/busqueda.cpp.s
+.PHONY : busqueda.cpp.s
+
 h.obj: h.cpp.obj
 .PHONY : h.obj
 
@@ -246,6 +283,7 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... a
+	@echo ... busqueda
 	@echo ... pt2
 	@echo ... bd.obj
 	@echo ... bd.i
@@ -253,6 +291,9 @@ help:
 	@echo ... buscador.obj
 	@echo ... buscador.i
 	@echo ... buscador.s
+	@echo ... busqueda.obj
+	@echo ... busqueda.i
+	@echo ... busqueda.s
 	@echo ... h.obj
 	@echo ... h.i
 	@echo ... h.s
