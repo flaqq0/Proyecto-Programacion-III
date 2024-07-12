@@ -64,6 +64,26 @@ CMAKE_BINARY_DIR = C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target package
+package: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
+	"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cpack.exe" --config ./CPackConfig.cmake
+.PHONY : package
+
+# Special rule for the target package
+package/fast: package
+.PHONY : package/fast
+
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
+	"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cpack.exe" --config ./CPackSourceConfig.cmake C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/cmake-build-debug/CPackSourceConfig.cmake
+.PHONY : package_source
+
+# Special rule for the target package_source
+package_source/fast: package_source
+.PHONY : package_source/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -83,6 +103,51 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -116,163 +181,113 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named a
+# Target rules for targets named ProyectoLimpio
 
 # Build rule for target.
-a : cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 a
-.PHONY : a
+ProyectoLimpio: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 ProyectoLimpio
+.PHONY : ProyectoLimpio
 
 # fast build rule for target.
-a/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\a.dir\build.make CMakeFiles/a.dir/build
-.PHONY : a/fast
+ProyectoLimpio/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/build
+.PHONY : ProyectoLimpio/fast
 
-#=============================================================================
-# Target rules for targets named busqueda
-
-# Build rule for target.
-busqueda: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 busqueda
-.PHONY : busqueda
-
-# fast build rule for target.
-busqueda/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\busqueda.dir\build.make CMakeFiles/busqueda.dir/build
-.PHONY : busqueda/fast
-
-#=============================================================================
-# Target rules for targets named pt2
-
-# Build rule for target.
-pt2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 pt2
-.PHONY : pt2
-
-# fast build rule for target.
-pt2/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/build
-.PHONY : pt2/fast
-
-bd.obj: bd.cpp.obj
-.PHONY : bd.obj
+cleanData.obj: cleanData.cpp.obj
+.PHONY : cleanData.obj
 
 # target to build an object file
-bd.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/bd.cpp.obj
-.PHONY : bd.cpp.obj
+cleanData.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj
+.PHONY : cleanData.cpp.obj
 
-bd.i: bd.cpp.i
-.PHONY : bd.i
+cleanData.i: cleanData.cpp.i
+.PHONY : cleanData.i
 
 # target to preprocess a source file
-bd.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/bd.cpp.i
-.PHONY : bd.cpp.i
+cleanData.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.i
+.PHONY : cleanData.cpp.i
 
-bd.s: bd.cpp.s
-.PHONY : bd.s
+cleanData.s: cleanData.cpp.s
+.PHONY : cleanData.s
 
 # target to generate assembly for a file
-bd.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/bd.cpp.s
-.PHONY : bd.cpp.s
+cleanData.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.s
+.PHONY : cleanData.cpp.s
 
-buscador.obj: buscador.cpp.obj
-.PHONY : buscador.obj
+logOrRegis/Planes.obj: logOrRegis/Planes.cpp.obj
+.PHONY : logOrRegis/Planes.obj
 
 # target to build an object file
-buscador.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/buscador.cpp.obj
-.PHONY : buscador.cpp.obj
+logOrRegis/Planes.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj
+.PHONY : logOrRegis/Planes.cpp.obj
 
-buscador.i: buscador.cpp.i
-.PHONY : buscador.i
+logOrRegis/Planes.i: logOrRegis/Planes.cpp.i
+.PHONY : logOrRegis/Planes.i
 
 # target to preprocess a source file
-buscador.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/buscador.cpp.i
-.PHONY : buscador.cpp.i
+logOrRegis/Planes.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.i
+.PHONY : logOrRegis/Planes.cpp.i
 
-buscador.s: buscador.cpp.s
-.PHONY : buscador.s
+logOrRegis/Planes.s: logOrRegis/Planes.cpp.s
+.PHONY : logOrRegis/Planes.s
 
 # target to generate assembly for a file
-buscador.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/buscador.cpp.s
-.PHONY : buscador.cpp.s
+logOrRegis/Planes.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.s
+.PHONY : logOrRegis/Planes.cpp.s
 
-busqueda.obj: busqueda.cpp.obj
-.PHONY : busqueda.obj
+logOrRegis/Usuario.obj: logOrRegis/Usuario.cpp.obj
+.PHONY : logOrRegis/Usuario.obj
 
 # target to build an object file
-busqueda.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\busqueda.dir\build.make CMakeFiles/busqueda.dir/busqueda.cpp.obj
-.PHONY : busqueda.cpp.obj
+logOrRegis/Usuario.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj
+.PHONY : logOrRegis/Usuario.cpp.obj
 
-busqueda.i: busqueda.cpp.i
-.PHONY : busqueda.i
+logOrRegis/Usuario.i: logOrRegis/Usuario.cpp.i
+.PHONY : logOrRegis/Usuario.i
 
 # target to preprocess a source file
-busqueda.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\busqueda.dir\build.make CMakeFiles/busqueda.dir/busqueda.cpp.i
-.PHONY : busqueda.cpp.i
+logOrRegis/Usuario.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.i
+.PHONY : logOrRegis/Usuario.cpp.i
 
-busqueda.s: busqueda.cpp.s
-.PHONY : busqueda.s
+logOrRegis/Usuario.s: logOrRegis/Usuario.cpp.s
+.PHONY : logOrRegis/Usuario.s
 
 # target to generate assembly for a file
-busqueda.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\busqueda.dir\build.make CMakeFiles/busqueda.dir/busqueda.cpp.s
-.PHONY : busqueda.cpp.s
+logOrRegis/Usuario.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.s
+.PHONY : logOrRegis/Usuario.cpp.s
 
-h.obj: h.cpp.obj
-.PHONY : h.obj
+main.obj: main.cpp.obj
+.PHONY : main.obj
 
 # target to build an object file
-h.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\a.dir\build.make CMakeFiles/a.dir/h.cpp.obj
-.PHONY : h.cpp.obj
+main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/main.cpp.obj
+.PHONY : main.cpp.obj
 
-h.i: h.cpp.i
-.PHONY : h.i
-
-# target to preprocess a source file
-h.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\a.dir\build.make CMakeFiles/a.dir/h.cpp.i
-.PHONY : h.cpp.i
-
-h.s: h.cpp.s
-.PHONY : h.s
-
-# target to generate assembly for a file
-h.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\a.dir\build.make CMakeFiles/a.dir/h.cpp.s
-.PHONY : h.cpp.s
-
-utilidades.obj: utilidades.cpp.obj
-.PHONY : utilidades.obj
-
-# target to build an object file
-utilidades.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/utilidades.cpp.obj
-.PHONY : utilidades.cpp.obj
-
-utilidades.i: utilidades.cpp.i
-.PHONY : utilidades.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-utilidades.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/utilidades.cpp.i
-.PHONY : utilidades.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-utilidades.s: utilidades.cpp.s
-.PHONY : utilidades.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-utilidades.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/utilidades.cpp.s
-.PHONY : utilidades.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -281,25 +296,26 @@ help:
 	@echo ... clean
 	@echo ... depend
 	@echo ... edit_cache
+	@echo ... install
+	@echo ... install/local
+	@echo ... install/strip
+	@echo ... list_install_components
+	@echo ... package
+	@echo ... package_source
 	@echo ... rebuild_cache
-	@echo ... a
-	@echo ... busqueda
-	@echo ... pt2
-	@echo ... bd.obj
-	@echo ... bd.i
-	@echo ... bd.s
-	@echo ... buscador.obj
-	@echo ... buscador.i
-	@echo ... buscador.s
-	@echo ... busqueda.obj
-	@echo ... busqueda.i
-	@echo ... busqueda.s
-	@echo ... h.obj
-	@echo ... h.i
-	@echo ... h.s
-	@echo ... utilidades.obj
-	@echo ... utilidades.i
-	@echo ... utilidades.s
+	@echo ... ProyectoLimpio
+	@echo ... cleanData.obj
+	@echo ... cleanData.i
+	@echo ... cleanData.s
+	@echo ... logOrRegis/Planes.obj
+	@echo ... logOrRegis/Planes.i
+	@echo ... logOrRegis/Planes.s
+	@echo ... logOrRegis/Usuario.obj
+	@echo ... logOrRegis/Usuario.i
+	@echo ... logOrRegis/Usuario.s
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 .PHONY : help
 
 

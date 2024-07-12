@@ -1,0 +1,8 @@
+# ninja log v5
+5	11136	7424604340477518	CMakeFiles/ProyectoLimpio.dir/main.cpp.obj	e622ccce26915b6e
+11137	20217	7424604431502142	ProyectoLimpio.exe	11ea3edcd4477b8d
+0	9	0	clean	b26e0f42c341beb7
+14	653	7424391931611369	CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj	fb36a4c75815d375
+2	263	7424848503164046	build.ninja	bf5457f92003ee97
+5	609	7424391931154136	CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj	7bac1c546380ed89
+17	1007	7424547694437958	CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj	eb23da931046ef52

@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: proyecto
+# Project: ProyectoLimpio
 # Configurations: Debug
 # =============================================================================
 
@@ -39,47 +39,94 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Users/Usuario/Desktop/Utec/2024-1/Progra$ III/proyecto/cmake-build-debug/
+cmake_ninja_workdir = C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target proyecto
+# Object build statements for EXECUTABLE target ProyectoLimpio
 
 
 #############################################
-# Order-only phony target for proyecto
+# Order-only phony target for ProyectoLimpio
 
-build cmake_object_order_depends_target_proyecto: phony || CMakeFiles/proyecto.dir
+build cmake_object_order_depends_target_ProyectoLimpio: phony || CMakeFiles/ProyectoLimpio.dir
 
-build CMakeFiles/proyecto.dir/h.cpp.obj: CXX_COMPILER__proyecto_unscanned_Debug C$:/Users/Usuario/Desktop/Utec/2024-1/Progra$ III/proyecto/h.cpp || cmake_object_order_depends_target_proyecto
-  DEP_FILE = CMakeFiles\proyecto.dir\h.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\proyecto.dir
-  OBJECT_FILE_DIR = CMakeFiles\proyecto.dir
+build CMakeFiles/ProyectoLimpio.dir/main.cpp.obj: CXX_COMPILER__ProyectoLimpio_unscanned_Debug C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/main.cpp || cmake_object_order_depends_target_ProyectoLimpio
+  DEP_FILE = CMakeFiles\ProyectoLimpio.dir\main.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -isystem C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/external/cpp-httplib
+  OBJECT_DIR = CMakeFiles\ProyectoLimpio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProyectoLimpio.dir
+
+build CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj: CXX_COMPILER__ProyectoLimpio_unscanned_Debug C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/logOrRegis/Planes.cpp || cmake_object_order_depends_target_ProyectoLimpio
+  DEP_FILE = CMakeFiles\ProyectoLimpio.dir\logOrRegis\Planes.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -isystem C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/external/cpp-httplib
+  OBJECT_DIR = CMakeFiles\ProyectoLimpio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProyectoLimpio.dir\logOrRegis
+
+build CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj: CXX_COMPILER__ProyectoLimpio_unscanned_Debug C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/logOrRegis/Usuario.cpp || cmake_object_order_depends_target_ProyectoLimpio
+  DEP_FILE = CMakeFiles\ProyectoLimpio.dir\logOrRegis\Usuario.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -isystem C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/external/cpp-httplib
+  OBJECT_DIR = CMakeFiles\ProyectoLimpio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProyectoLimpio.dir\logOrRegis
+
+build CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj: CXX_COMPILER__ProyectoLimpio_unscanned_Debug C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/cleanData.cpp || cmake_object_order_depends_target_ProyectoLimpio
+  DEP_FILE = CMakeFiles\ProyectoLimpio.dir\cleanData.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -isystem C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/external/cpp-httplib
+  OBJECT_DIR = CMakeFiles\ProyectoLimpio.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProyectoLimpio.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target proyecto
+# Link build statements for EXECUTABLE target ProyectoLimpio
 
 
 #############################################
-# Link the executable proyecto.exe
+# Link the executable ProyectoLimpio.exe
 
-build proyecto.exe: CXX_EXECUTABLE_LINKER__proyecto_Debug CMakeFiles/proyecto.dir/h.cpp.obj
+build ProyectoLimpio.exe: CXX_EXECUTABLE_LINKER__ProyectoLimpio_Debug CMakeFiles/ProyectoLimpio.dir/main.cpp.obj CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\proyecto.dir
+  LINK_LIBRARIES = -lws2_32  -lcrypt32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\ProyectoLimpio.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = proyecto.exe
-  TARGET_IMPLIB = libproyecto.dll.a
-  TARGET_PDB = proyecto.exe.dbg
+  TARGET_FILE = ProyectoLimpio.exe
+  TARGET_IMPLIB = libProyectoLimpio.dll.a
+  TARGET_PDB = ProyectoLimpio.exe.dbg
+
+
+#############################################
+# Utility command for package
+
+build CMakeFiles/package.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cpack.exe" --config ./CPackConfig.cmake"
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build package: phony CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cpack.exe" --config ./CPackSourceConfig.cmake C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/cmake-build-debug/CPackSourceConfig.cmake"
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build package_source: phony CMakeFiles/package_source.util
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\Usuario\Desktop\Utec\2024-1\Progra III\proyecto\cmake-build-debug" && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio -BC:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug"
+  DESC = Running CMake cache editor...
+  pool = console
   restat = 1
 
 build edit_cache: phony CMakeFiles/edit_cache.util
@@ -89,17 +136,154 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\Usuario\Desktop\Utec\2024-1\Progra III\proyecto\cmake-build-debug" && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -S"C:\Users\Usuario\Desktop\Utec\2024-1\Progra III\proyecto" -B"C:\Users\Usuario\Desktop\Utec\2024-1\Progra III\proyecto\cmake-build-debug""
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio -BC:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for package
+
+build external/cpp-httplib/CMakeFiles/package.util: CUSTOM_COMMAND external/cpp-httplib/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cpack.exe" --config ./CPackConfig.cmake"
+  DESC = Run CPack packaging tool...
+  pool = console
+  restat = 1
+
+build external/cpp-httplib/package: phony external/cpp-httplib/CMakeFiles/package.util
+
+
+#############################################
+# Utility command for package_source
+
+build external/cpp-httplib/CMakeFiles/package_source.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cpack.exe" --config ./CPackSourceConfig.cmake C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/cmake-build-debug/CPackSourceConfig.cmake"
+  DESC = Run CPack packaging tool for source...
+  pool = console
+  restat = 1
+
+build external/cpp-httplib/package_source: phony external/cpp-httplib/CMakeFiles/package_source.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build external/cpp-httplib/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug\external\cpp-httplib && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio -BC:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build external/cpp-httplib/edit_cache: phony external/cpp-httplib/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build external/cpp-httplib/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug\external\cpp-httplib && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio -BC:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build external/cpp-httplib/rebuild_cache: phony external/cpp-httplib/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build external/cpp-httplib/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build external/cpp-httplib/CMakeFiles/install.util: CUSTOM_COMMAND external/cpp-httplib/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug\external\cpp-httplib && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build external/cpp-httplib/install: phony external/cpp-httplib/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build external/cpp-httplib/CMakeFiles/install/local.util: CUSTOM_COMMAND external/cpp-httplib/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug\external\cpp-httplib && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build external/cpp-httplib/install/local: phony external/cpp-httplib/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build external/cpp-httplib/CMakeFiles/install/strip.util: CUSTOM_COMMAND external/cpp-httplib/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\ProyectoLimpio\cmake-build-debug\external\cpp-httplib && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build external/cpp-httplib/install/strip: phony external/cpp-httplib/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Target aliases.
 
-build proyecto: phony proyecto.exe
+build ProyectoLimpio: phony ProyectoLimpio.exe
 
 # =============================================================================
 # Folder targets.
@@ -107,9 +291,16 @@ build proyecto: phony proyecto.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/Usuario/Desktop/Utec/2024-1/Progra III/proyecto/cmake-build-debug
+# Folder: C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/cmake-build-debug
 
-build all: phony proyecto.exe
+build all: phony ProyectoLimpio.exe external/cpp-httplib/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/cmake-build-debug/external/cpp-httplib
+
+build external/cpp-httplib/all: phony
 
 # =============================================================================
 # Built-in targets
@@ -118,14 +309,14 @@ build all: phony proyecto.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Users/Usuario/Desktop/Utec/2024-1/Progra$ III/proyecto/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/BasicConfigVersion-SameMinorVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckIncludeFile.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckLibraryExists.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenSSL.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPkgConfig.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindZLIB.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/CMakeLists.txt C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/external/cpp-httplib/CMakeLists.txt C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/external/cpp-httplib/cmake/FindBrotli.cmake C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/external/cpp-httplib/cmake/httplibConfig.cmake.in CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Users/Usuario/Desktop/Utec/2024-1/Progra$ III/proyecto/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake: phony
+build C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/BasicConfigVersion-SameMinorVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckIncludeFile.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckLibraryExists.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenSSL.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPkgConfig.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindZLIB.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/CMakeLists.txt C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/external/cpp-httplib/CMakeLists.txt C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/external/cpp-httplib/cmake/FindBrotli.cmake C$:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/external/cpp-httplib/cmake/httplibConfig.cmake.in CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake: phony
 
 
 #############################################

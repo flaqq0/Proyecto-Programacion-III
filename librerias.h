@@ -1,10 +1,11 @@
-#ifndef PROYECTO_LIBRERIAS_H
-#define PROYECTO_LIBRERIAS_H
-
-//TODAS LAS LIBRERÍAS BÁSICAS AQUÍ
+#ifndef PROYECTOLIMPIO_LIBRERIAS_H
+#define PROYECTOLIMPIO_LIBRERIAS_H
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <sstream>
 #include <algorithm>
 #include <vector>
 using namespace std;
-#endif //PROYECTO_LIBRERIAS_H
+
+#endif //PROYECTOLIMPIO_LIBRERIAS_H

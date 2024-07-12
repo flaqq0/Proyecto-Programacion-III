@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/proyecto")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/ProyectoLimpio")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -35,6 +35,12 @@ endif()
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/objdump.exe")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/cmake_install.cmake")
+
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

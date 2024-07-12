@@ -62,98 +62,59 @@ CMAKE_BINARY_DIR = C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/a.dir/all
-all: CMakeFiles/busqueda.dir/all
-all: CMakeFiles/pt2.dir/all
+all: CMakeFiles/ProyectoLimpio.dir/all
+all: external/cpp-httplib/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: external/cpp-httplib/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/a.dir/clean
-clean: CMakeFiles/busqueda.dir/clean
-clean: CMakeFiles/pt2.dir/clean
+clean: CMakeFiles/ProyectoLimpio.dir/clean
+clean: external/cpp-httplib/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/a.dir
+# Directory level rules for directory external/cpp-httplib
 
-# All Build rule for target.
-CMakeFiles/a.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\a.dir\build.make CMakeFiles/a.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\a.dir\build.make CMakeFiles/a.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target a"
-.PHONY : CMakeFiles/a.dir/all
+# Recursive "all" directory target.
+external/cpp-httplib/all:
+.PHONY : external/cpp-httplib/all
 
-# Build rule for subdir invocation for target.
-CMakeFiles/a.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/a.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles/a.dir/rule
+# Recursive "preinstall" directory target.
+external/cpp-httplib/preinstall:
+.PHONY : external/cpp-httplib/preinstall
 
-# Convenience name for target.
-a : CMakeFiles/a.dir/rule
-.PHONY : a
-
-# clean rule for target.
-CMakeFiles/a.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\a.dir\build.make CMakeFiles/a.dir/clean
-.PHONY : CMakeFiles/a.dir/clean
+# Recursive "clean" directory target.
+external/cpp-httplib/clean:
+.PHONY : external/cpp-httplib/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/busqueda.dir
+# Target rules for target CMakeFiles/ProyectoLimpio.dir
 
 # All Build rule for target.
-CMakeFiles/busqueda.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\busqueda.dir\build.make CMakeFiles/busqueda.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\busqueda.dir\build.make CMakeFiles/busqueda.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles --progress-num=3,4 "Built target busqueda"
-.PHONY : CMakeFiles/busqueda.dir/all
+CMakeFiles/ProyectoLimpio.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Built target ProyectoLimpio"
+.PHONY : CMakeFiles/ProyectoLimpio.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/busqueda.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/busqueda.dir/all
+CMakeFiles/ProyectoLimpio.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/ProyectoLimpio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles/busqueda.dir/rule
+.PHONY : CMakeFiles/ProyectoLimpio.dir/rule
 
 # Convenience name for target.
-busqueda: CMakeFiles/busqueda.dir/rule
-.PHONY : busqueda
+ProyectoLimpio: CMakeFiles/ProyectoLimpio.dir/rule
+.PHONY : ProyectoLimpio
 
 # clean rule for target.
-CMakeFiles/busqueda.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\busqueda.dir\build.make CMakeFiles/busqueda.dir/clean
-.PHONY : CMakeFiles/busqueda.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/pt2.dir
-
-# All Build rule for target.
-CMakeFiles/pt2.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles --progress-num=5,6,7,8 "Built target pt2"
-.PHONY : CMakeFiles/pt2.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/pt2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/pt2.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Usuario\Desktop\Utec\2024-1\PrograIII\PROYECTOFINAL\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles/pt2.dir/rule
-
-# Convenience name for target.
-pt2: CMakeFiles/pt2.dir/rule
-.PHONY : pt2
-
-# clean rule for target.
-CMakeFiles/pt2.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pt2.dir\build.make CMakeFiles/pt2.dir/clean
-.PHONY : CMakeFiles/pt2.dir/clean
+CMakeFiles/ProyectoLimpio.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ProyectoLimpio.dir\build.make CMakeFiles/ProyectoLimpio.dir/clean
+.PHONY : CMakeFiles/ProyectoLimpio.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

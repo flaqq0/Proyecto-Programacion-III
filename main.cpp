@@ -1,60 +1,47 @@
-#include <iostream>
-#include <future>
-#include "Pelicula.h"
-#include "bd.h"
-#include "buscador.h"
-#include "utilidades.h"
-using namespace std;
-
-template<typename Func, typename Criterio> //se pasan los metodos de buscador como parametro
-void mostrarTitulosPeliculas(Func func, const vector<Pelicula>& peliculas, const Criterio& criterio) {
-    auto resultados_Futuro = async(launch::async, func, ref(peliculas), criterio);
-    vector<Pelicula> resultados = resultados_Futuro.get();
-
-    cout << "Títulos de las primeras 5 películas resultado de tu busqueda:" << endl;
-    for (size_t i = 0; i < min(resultados.size(), size_t(5)); i++) {
-        cout << (i+1) << ". " << resultados[i].titulo << endl;
+#include <httplib.h>
+#include "ALL.h"
+string read_file(const string& path) {
+    std::ifstream file(path);
+    if (!file.is_open()) {
+        throw std::runtime_error("Could not open file: " + path);
     }
+    std::stringstream buffer;
+    buffer << file.rdbuf();
+    return buffer.str();
 }
-
 int main() {
-    vector<Pelicula> peliculas = cargarBaseDatos("peliculas.csv");
+    string fil = "C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/peliculas.csv";
+    vector<CMovie> movies = loadCsv(fil);
+    /*
+    for (int i = 0; i < 1; i++) {
+        cout << "ID :" << movies[i].imdb_id << endl;
+        cout << "TITTLE :" << movies[i].title << endl;
+        cout << "PLOT SYNOPSIS :" << movies[i].plot_synopsis << endl;
+        cout << "TAGS :" << movies[i].tags << endl;
+        cout << "SPLIT :" << movies[i].split << endl;
+        cout << "SYNOPSIS SOURCE:" << movies[i].synopsis_source << endl;
+        cout << "- - - - - - - - - - - - - - - - - - - - - - - -" << endl;
+    }*/
 
-    int opcion;
-    do {
-        cout << "------------¡Bienvenido a tu plataforma de streaming!--------------" << endl;
-        cout << "Ingresa el número de la opción para el tipo de búsqueda que deseas realizar" << endl;
-        cout << "1. Buscar por el nombre de la película" << endl;
-        cout << "2. Buscar por el Tag de la película" << endl;
-        cout << "Ingrese su opción: ";
-        cin >> opcion;
-        cin.ignore();
+    Premium premium("Premium", 44.90,"La mejor","4k(Ultra HD) + HDR", true, 4, 6);
+    Standard standard("Estándard",34.90,"Excelente","1080p (Full HD)",false,2,2);
+    Basic basic("Básico",24.90,"Buena","720p (HD)", false,1,1);
 
-        if (opcion != 1 && opcion != 2) {
-            cout << "Opción no válida (Solo se admiten opciones 1 o 2)" << endl;
-        }
+    httplib::Server svr;
 
-    } while (opcion != 1 && opcion != 2);
+    svr.Get("/", [](const httplib::Request&, httplib::Response& res) {
+        std::string html = read_file("../web/index.html");
+        res.set_content(html, "text/html");
+    });
+    svr.Get("/styles.css", [](const httplib::Request&, httplib::Response& res) {
+        std::string css = read_file("../web/styles.css");
+        res.set_content(css, "text/css");
+    });
+    svr.Get("/script.js", [](const httplib::Request&, httplib::Response& res) {
+        std::string js = read_file("../web/script.js");
+        res.set_content(js, "application/javascript");
+    });
 
-    if (opcion == 1) {
-        string palabraClave;
-        cout << "Ingrese el título de la película: ";
-        getline(cin, palabraClave);
-
-        mostrarTitulosPeliculas(buscarPorTitulo, peliculas, palabraClave);
-    } else if (opcion == 2) {
-        string tag;
-        cout << "Ingrese un tag para buscar películas: ";
-        getline(cin, tag);
-
-        mostrarTitulosPeliculas(buscarPorTag, peliculas, tag);
-    }
-
-    vector<string> likes = obtenerTagsFavoritos();
-    auto recomendacionesFuturo = async(launch::async, recomendarPeliculas, ref(peliculas), likes);
-    vector<Pelicula> recomendaciones = recomendacionesFuturo.get();
-    cout << "Recomendaciones basadas en sus likes dados: " << endl;
-    mostrarTitulosPeliculas(recomendarPeliculas, peliculas, likes);
-
+    svr.listen("localhost", 8080);
     return 0;
 }
