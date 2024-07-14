@@ -52,10 +52,10 @@ RM = "C:\Program Files\JetBrains\CLion 2023.2\bin\cmake\win\x64\bin\cmake.exe" -
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III
+CMAKE_SOURCE_DIR = "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ProyectoLimpio.dir/depend.make
@@ -70,63 +70,63 @@ include CMakeFiles/ProyectoLimpio.dir/flags.make
 
 CMakeFiles/ProyectoLimpio.dir/main.cpp.obj: CMakeFiles/ProyectoLimpio.dir/flags.make
 CMakeFiles/ProyectoLimpio.dir/main.cpp.obj: CMakeFiles/ProyectoLimpio.dir/includes_CXX.rsp
-CMakeFiles/ProyectoLimpio.dir/main.cpp.obj: D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/main.cpp
+CMakeFiles/ProyectoLimpio.dir/main.cpp.obj: C:/Users/sofia/Desktop/Documentos/2024/progra\ 3/Proyecto-Programacion-III/main.cpp
 CMakeFiles/ProyectoLimpio.dir/main.cpp.obj: CMakeFiles/ProyectoLimpio.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ProyectoLimpio.dir/main.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectoLimpio.dir/main.cpp.obj -MF CMakeFiles\ProyectoLimpio.dir\main.cpp.obj.d -o CMakeFiles\ProyectoLimpio.dir\main.cpp.obj -c D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ProyectoLimpio.dir/main.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectoLimpio.dir/main.cpp.obj -MF CMakeFiles\ProyectoLimpio.dir\main.cpp.obj.d -o CMakeFiles\ProyectoLimpio.dir\main.cpp.obj -c "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\main.cpp"
 
 CMakeFiles/ProyectoLimpio.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProyectoLimpio.dir/main.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\main.cpp > CMakeFiles\ProyectoLimpio.dir\main.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\main.cpp" > CMakeFiles\ProyectoLimpio.dir\main.cpp.i
 
 CMakeFiles/ProyectoLimpio.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProyectoLimpio.dir/main.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\main.cpp -o CMakeFiles\ProyectoLimpio.dir\main.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\main.cpp" -o CMakeFiles\ProyectoLimpio.dir\main.cpp.s
 
 CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj: CMakeFiles/ProyectoLimpio.dir/flags.make
 CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj: CMakeFiles/ProyectoLimpio.dir/includes_CXX.rsp
-CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj: D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/logOrRegis/Planes.cpp
+CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj: C:/Users/sofia/Desktop/Documentos/2024/progra\ 3/Proyecto-Programacion-III/logOrRegis/Planes.cpp
 CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj: CMakeFiles/ProyectoLimpio.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj -MF CMakeFiles\ProyectoLimpio.dir\logOrRegis\Planes.cpp.obj.d -o CMakeFiles\ProyectoLimpio.dir\logOrRegis\Planes.cpp.obj -c D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\logOrRegis\Planes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.obj -MF CMakeFiles\ProyectoLimpio.dir\logOrRegis\Planes.cpp.obj.d -o CMakeFiles\ProyectoLimpio.dir\logOrRegis\Planes.cpp.obj -c "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\logOrRegis\Planes.cpp"
 
 CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\logOrRegis\Planes.cpp > CMakeFiles\ProyectoLimpio.dir\logOrRegis\Planes.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\logOrRegis\Planes.cpp" > CMakeFiles\ProyectoLimpio.dir\logOrRegis\Planes.cpp.i
 
 CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProyectoLimpio.dir/logOrRegis/Planes.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\logOrRegis\Planes.cpp -o CMakeFiles\ProyectoLimpio.dir\logOrRegis\Planes.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\logOrRegis\Planes.cpp" -o CMakeFiles\ProyectoLimpio.dir\logOrRegis\Planes.cpp.s
 
 CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj: CMakeFiles/ProyectoLimpio.dir/flags.make
 CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj: CMakeFiles/ProyectoLimpio.dir/includes_CXX.rsp
-CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj: D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/logOrRegis/Usuario.cpp
+CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj: C:/Users/sofia/Desktop/Documentos/2024/progra\ 3/Proyecto-Programacion-III/logOrRegis/Usuario.cpp
 CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj: CMakeFiles/ProyectoLimpio.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj -MF CMakeFiles\ProyectoLimpio.dir\logOrRegis\Usuario.cpp.obj.d -o CMakeFiles\ProyectoLimpio.dir\logOrRegis\Usuario.cpp.obj -c D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\logOrRegis\Usuario.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.obj -MF CMakeFiles\ProyectoLimpio.dir\logOrRegis\Usuario.cpp.obj.d -o CMakeFiles\ProyectoLimpio.dir\logOrRegis\Usuario.cpp.obj -c "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\logOrRegis\Usuario.cpp"
 
 CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\logOrRegis\Usuario.cpp > CMakeFiles\ProyectoLimpio.dir\logOrRegis\Usuario.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\logOrRegis\Usuario.cpp" > CMakeFiles\ProyectoLimpio.dir\logOrRegis\Usuario.cpp.i
 
 CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProyectoLimpio.dir/logOrRegis/Usuario.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\logOrRegis\Usuario.cpp -o CMakeFiles\ProyectoLimpio.dir\logOrRegis\Usuario.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\logOrRegis\Usuario.cpp" -o CMakeFiles\ProyectoLimpio.dir\logOrRegis\Usuario.cpp.s
 
 CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj: CMakeFiles/ProyectoLimpio.dir/flags.make
 CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj: CMakeFiles/ProyectoLimpio.dir/includes_CXX.rsp
-CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj: D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/cleanData.cpp
+CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj: C:/Users/sofia/Desktop/Documentos/2024/progra\ 3/Proyecto-Programacion-III/cleanData.cpp
 CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj: CMakeFiles/ProyectoLimpio.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj -MF CMakeFiles\ProyectoLimpio.dir\cleanData.cpp.obj.d -o CMakeFiles\ProyectoLimpio.dir\cleanData.cpp.obj -c D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cleanData.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.obj -MF CMakeFiles\ProyectoLimpio.dir\cleanData.cpp.obj.d -o CMakeFiles\ProyectoLimpio.dir\cleanData.cpp.obj -c "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cleanData.cpp"
 
 CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cleanData.cpp > CMakeFiles\ProyectoLimpio.dir\cleanData.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cleanData.cpp" > CMakeFiles\ProyectoLimpio.dir\cleanData.cpp.i
 
 CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ProyectoLimpio.dir/cleanData.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cleanData.cpp -o CMakeFiles\ProyectoLimpio.dir\cleanData.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cleanData.cpp" -o CMakeFiles\ProyectoLimpio.dir\cleanData.cpp.s
 
 # Object files for target ProyectoLimpio
 ProyectoLimpio_OBJECTS = \
@@ -146,7 +146,7 @@ ProyectoLimpio.exe: CMakeFiles/ProyectoLimpio.dir/build.make
 ProyectoLimpio.exe: CMakeFiles/ProyectoLimpio.dir/linkLibs.rsp
 ProyectoLimpio.exe: CMakeFiles/ProyectoLimpio.dir/objects1.rsp
 ProyectoLimpio.exe: CMakeFiles/ProyectoLimpio.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ProyectoLimpio.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ProyectoLimpio.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\ProyectoLimpio.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -158,6 +158,6 @@ CMakeFiles/ProyectoLimpio.dir/clean:
 .PHONY : CMakeFiles/ProyectoLimpio.dir/clean
 
 CMakeFiles/ProyectoLimpio.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles\ProyectoLimpio.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III" "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III" "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug" "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug" "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles\ProyectoLimpio.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/ProyectoLimpio.dir/depend
 

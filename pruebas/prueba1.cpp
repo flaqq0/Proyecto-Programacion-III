@@ -7,6 +7,7 @@
 #include <queue>
 #include <thread>
 #include <mutex>
+#include <sstream>
 
 using namespace std;
 
@@ -104,26 +105,30 @@ void recommendMovies(string searching, Trie& trie, PriorityQueue& pq) {
 }
 
 int main() {
-    ifstream file("C:/Users/sofia/Desktop/Documentos/2024/progra 3/proyecto-prueba/prueba.csv");
-    string line;
-    getline(file, line);
     Trie trie;
+    ifstream file("C:/Users/sofia/Desktop/Documentos/2024/progra 3/proyecto-prueba/prueba.csv");
+    if (!file.is_open()) {
+        cout << "Error opening file: " <<endl;
+    }
+
+    string line;
     while (getline(file, line)) {
-        size_t pos = line.find(';');
-        string imdb_id = line.substr(0, pos);
-        line = line.substr(pos + 1);
-        pos = line.find(';');
-        string title = line.substr(0, pos);
-        line = line.substr(pos + 1);
-        pos = line.find(';');
-        string plot_synopsis = line.substr(0, pos);
-        line = line.substr(pos + 1);
-        pos = line.find(';');
-        string tags = line.substr(0, pos);
-        string synopsis_source = line.substr(pos + 1);
+        stringstream ss(line);
+        string imdb_id, title, plot_synopsis, tags, split, synopsis_source;
+
+        getline(ss, imdb_id, ';');
+        getline(ss, title, ';');
+        getline(ss, plot_synopsis, ';');
+        getline(ss, tags, ';');
+        getline(ss, split, ';');
+        getline(ss, synopsis_source, ';');
+
         Movie* movie = new Movie(imdb_id, title, plot_synopsis, tags, synopsis_source, synopsis_source);
         trie.insert(movie);
+
+        cout << "Loaded movie: " << title << endl;
     }
+
     file.close();
 
     cout << "buscar: ";

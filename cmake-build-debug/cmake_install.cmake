@@ -1,4 +1,4 @@
-# Install script for directory: D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III
+# Install script for directory: C:/Users/sofia/Desktop/Documentos/2024/progra 3/Proyecto-Programacion-III
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/cmake_install.cmake")
+  include("C:/Users/sofia/Desktop/Documentos/2024/progra 3/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/sofia/Desktop/Documentos/2024/progra 3/Proyecto-Programacion-III/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
