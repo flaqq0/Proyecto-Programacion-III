@@ -1,13 +1,16 @@
 #ifndef PROYECTOLIMPIO_PLANES_H
 #define PROYECTOLIMPIO_PLANES_H
 #include "../librerias.h"
+
 struct Planes {
     double precio;
     string name, quality, resolution;
     bool spatialAudio;
     int devicesSameT, downloadDevices;
+
     Planes();
     Planes(string name, double price, string qual, string resol, bool spatialAudio, int devicessametime, int download);
+
     string getName()const;
     double getPrecio()const;
     string getQuality()const;

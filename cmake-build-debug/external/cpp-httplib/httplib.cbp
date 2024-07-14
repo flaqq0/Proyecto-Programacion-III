@@ -8,26 +8,26 @@
 		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\cpp-httplib\;CMake Files\external\cpp-httplib\cmake\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib"/>
+				<Option working_dir="D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/CMakeLists.txt">
+		<Unit filename="D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/external/cpp-httplib/CMakeLists.txt">
+		<Unit filename="D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/external/cpp-httplib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\external\cpp-httplib\"/>
 		</Unit>
-		<Unit filename="C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/external/cpp-httplib/cmake/FindBrotli.cmake">
+		<Unit filename="D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/external/cpp-httplib/cmake/FindBrotli.cmake">
 			<Option virtualFolder="CMake Files\external\cpp-httplib\cmake\"/>
 		</Unit>
-		<Unit filename="C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/external/cpp-httplib/cmake/httplibConfig.cmake.in">
+		<Unit filename="D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/external/cpp-httplib/cmake/httplibConfig.cmake.in">
 			<Option virtualFolder="CMake Files\external\cpp-httplib\cmake\"/>
 		</Unit>
 	</Project>

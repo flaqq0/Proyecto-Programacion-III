@@ -7,10 +7,13 @@ email(email), password(password), plan(plan) {}
 
 const string &Usuario::getNombre() const {return nombre;}
 void Usuario::setNombre(const string &nombre) {Usuario::nombre = nombre;}
+
 const string &Usuario::getEmail() const {return email;}
 void Usuario::setEmail(const string &email) {Usuario::email = email;}
+
 const string &Usuario::getPassword() const {return password;}
 void Usuario::setPassword(const string &password) {Usuario::password = password;}
+
 Planes *Usuario::getPlan() const {return plan;}
 void Usuario::setPlan(Planes *plan) {Usuario::plan = plan;}
 

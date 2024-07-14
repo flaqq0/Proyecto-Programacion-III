@@ -4,7 +4,7 @@
 #include "logOrRegis/Planes.h"
 #include "cleanData.h"
 
-string fil = "C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/peliculas.csv";
+string fil = "D://Descargas//Proyecto-Programacion-III-main//Proyecto-Programacion-III//peliculas.csv";
 vector<CMovie> movies = loadCsv(fil);
 
 Premium premium("Premium", 44.90,"La mejor","4k(Ultra HD) + HDR", true, 4, 6);

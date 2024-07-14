@@ -1,7 +1,8 @@
 #ifndef PROYECTOLIMPIO_USUARIO_H
 #define PROYECTOLIMPIO_USUARIO_H
 #include "Planes.h"
-class Usuario {
+
+class Usuario{
     string nombre, email, password;
     Planes *plan;
 public:
@@ -25,6 +26,5 @@ public:
     bool verificarContra(const string &contra);
     virtual ~Usuario();
 };
-
 
 #endif

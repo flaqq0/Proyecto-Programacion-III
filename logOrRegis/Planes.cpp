@@ -1,5 +1,7 @@
 #include "Planes.h"
+
 Planes::Planes() {}
+
 Planes::Planes(string name, double price, string qual, string resol, bool spatialAudio,
                int devicessametime, int download) : name(name), precio(price), quality(qual), resolution(resol),
                spatialAudio(spatialAudio), devicesSameT(devicessametime), downloadDevices(download) {}

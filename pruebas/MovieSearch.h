@@ -8,17 +8,18 @@
 #include <thread>
 #include <mutex>
 #include <memory>
+using namespace std;
 
 class Movie {
 public:
-    std::string imdb_id;
-    std::string title;
-    std::string plot_synopsis;
-    std::string tags;
-    std::string split;
-    std::string synopsis_source;
+    string imdb_id;
+    string title;
+    string plot_synopsis;
+    string tags;
+    string split;
+    string synopsis_source;
 
-    Movie(const std::string& id, const std::string& t, const std::string& plot, const std::string& tag, const std::string& sp, const std::string& source)
+    Movie(const string& id, const string& t, const string& plot, const string& tag, const string& sp, const string& source)
             : imdb_id(id), title(t), plot_synopsis(plot), tags(tag), split(sp), synopsis_source(source) {}
 
     bool operator<(const Movie& other) const {
@@ -26,41 +27,48 @@ public:
     }
 };
 
+// Clase genérica para tipo de búsqueda
+template <typename T>
 class SearchStrategy {
 public:
-    virtual std::vector<Movie> search(const std::vector<Movie>& movies, const std::string& query) = 0;
+    virtual vector<T> search(const vector<T>& items, const string& query) = 0;
 };
 
-class TitleSearch : public SearchStrategy {
+//búsqueda por título
+class TitleSearch : public SearchStrategy<Movie> {
 public:
-    std::vector<Movie> search(const std::vector<Movie>& movies, const std::string& query) override;
+    vector<Movie> search(const vector<Movie>& movies, const string& query) override;
 };
 
-class TagSearch : public SearchStrategy {
+//búsqueda por tag
+class TagSearch : public SearchStrategy<Movie> {
 public:
-    std::vector<Movie> search(const std::vector<Movie>& movies, const std::string& query) override;
+    vector<Movie> search(const vector<Movie>& movies, const string& query) override;
 };
 
-class PlotSearch : public SearchStrategy {
+//búsqueda por sinopsis
+class PlotSearch : public SearchStrategy<Movie> {
 public:
-    std::vector<Movie> search(const std::vector<Movie>& movies, const std::string& query) override;
+    vector<Movie> search(const vector<Movie>& movies, const string& query) override;
 };
 
+//búsqueda de películas
 class MovieSearchEngine {
 private:
-    std::vector<Movie> movies;
-    std::vector<std::unique_ptr<SearchStrategy>> strategies;
-    std::priority_queue<std::pair<int, Movie>> searchResults;
-    std::mutex resultMutex;
+    vector<Movie> movies;
+    vector<unique_ptr<SearchStrategy<Movie>>> strategies;
+    priority_queue<pair<int, Movie>> searchResults;
+    mutex resultMutex;
 
     MovieSearchEngine() = default;
-    int calculateRelevance(const Movie& movie, const std::string& query);
+    int calculateRelevance(const Movie& movie, const string& query);
 
 public:
     static MovieSearchEngine& getInstance();
-    void addStrategy(std::unique_ptr<SearchStrategy> strategy);
-    std::vector<Movie> search(const std::string& query);
-    void loadMovies(const std::string& filePath);
+    void addStrategy(unique_ptr<SearchStrategy<Movie>> strategy);
+    vector<Movie> search(const string& query);
+    void loadMovies(const string& filePath);
 };
 
 #endif //PROYECTO_PRUEBA_MOVIESEARCH_H
+
