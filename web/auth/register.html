@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="/auth/register.css">
-    <script src="/auth/register.js" defer></script>
+    <link rel="stylesheet" href="register.css">
+    <script src="register.js" defer></script>
 </head>
 <body>
 <div class="container">
     <h1>Register</h1>
-    <form>
-        <input type="email" placeholder="Email address" required>
-        <input type="password" placeholder="Password" required>
+    <form id="registerForm">
+        <input type="email" id="emailInput" placeholder="Email address" value="mateo@example.com" required>
+        <input type="password" id="passwordInput" placeholder="Password" value="12345" required>
         <button type="submit">Register</button>
     </form>
 </div>
