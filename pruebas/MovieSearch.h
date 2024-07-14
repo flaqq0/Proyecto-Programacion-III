@@ -8,6 +8,8 @@
 #include <thread>
 #include <mutex>
 #include <memory>
+#include "external/json/single_include/nlohmann/json.hpp"
+using json = nlohmann::json;
 using namespace std;
 
 class Movie {
@@ -27,48 +29,43 @@ public:
     }
 };
 
-// Clase genérica para tipo de búsqueda
-template <typename T>
-class SearchStrategy {
+class Estrategia {
 public:
-    virtual vector<T> search(const vector<T>& items, const string& query) = 0;
+    virtual vector<Movie> search(const vector<Movie>& movies, const string& query) = 0;
 };
 
-//búsqueda por título
-class TitleSearch : public SearchStrategy<Movie> {
+class PorTitulo : public Estrategia {
 public:
     vector<Movie> search(const vector<Movie>& movies, const string& query) override;
 };
 
-//búsqueda por tag
-class TagSearch : public SearchStrategy<Movie> {
+class PorTag : public Estrategia {
 public:
     vector<Movie> search(const vector<Movie>& movies, const string& query) override;
 };
 
-//búsqueda por sinopsis
-class PlotSearch : public SearchStrategy<Movie> {
+class PorPlot : public Estrategia {
 public:
     vector<Movie> search(const vector<Movie>& movies, const string& query) override;
 };
 
-//búsqueda de películas
-class MovieSearchEngine {
+class Buscador {
 private:
     vector<Movie> movies;
-    vector<unique_ptr<SearchStrategy<Movie>>> strategies;
+    vector<unique_ptr<Estrategia>> strategies;
     priority_queue<pair<int, Movie>> searchResults;
     mutex resultMutex;
 
-    MovieSearchEngine() = default;
-    int calculateRelevance(const Movie& movie, const string& query);
+    Buscador() = default;
+    int calcularRelevancia(const Movie& movie, const string& query);
 
 public:
-    static MovieSearchEngine& getInstance();
-    void addStrategy(unique_ptr<SearchStrategy<Movie>> strategy);
-    vector<Movie> search(const string& query);
+    static Buscador& getInstance();
+    void addEstrategia(unique_ptr<Estrategia> strategy);
+    vector<Movie> buscar(const string& query);
     void loadMovies(const string& filePath);
+    void loadCSV(const string& filePath);
+    int contador(const string& text, const string& word);
 };
 
 #endif //PROYECTO_PRUEBA_MOVIESEARCH_H
-

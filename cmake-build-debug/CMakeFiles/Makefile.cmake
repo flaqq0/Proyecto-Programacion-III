@@ -46,14 +46,14 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/JetBrains/CLion 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/ProcessorCount.cmake"
   "C:/Program Files/JetBrains/CLion 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake"
   "C:/Program Files/JetBrains/CLion 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake"
-  "D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/CMakeLists.txt"
+  "C:/Users/sofia/Desktop/Documentos/2024/progra 3/Proyecto-Programacion-III/CMakeLists.txt"
   "CMakeFiles/3.26.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.26.4/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.26.4/CMakeRCCompiler.cmake"
   "CMakeFiles/3.26.4/CMakeSystem.cmake"
-  "D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/external/cpp-httplib/CMakeLists.txt"
-  "D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/external/cpp-httplib/cmake/FindBrotli.cmake"
-  "D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/external/cpp-httplib/cmake/httplibConfig.cmake.in"
+  "C:/Users/sofia/Desktop/Documentos/2024/progra 3/Proyecto-Programacion-III/external/cpp-httplib/CMakeLists.txt"
+  "C:/Users/sofia/Desktop/Documentos/2024/progra 3/Proyecto-Programacion-III/external/cpp-httplib/cmake/FindBrotli.cmake"
+  "C:/Users/sofia/Desktop/Documentos/2024/progra 3/Proyecto-Programacion-III/external/cpp-httplib/cmake/httplibConfig.cmake.in"
   )
 
 # The corresponding makefile is:

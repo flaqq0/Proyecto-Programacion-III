@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2023.2\bin\cmake\win\x64\bin\cmake.exe" -
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III
+CMAKE_SOURCE_DIR = "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -77,7 +77,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	"C:\Program Files\JetBrains\CLion 2023.2\bin\cmake\win\x64\bin\cpack.exe" --config ./CPackSourceConfig.cmake D:/Descargas/Proyecto-Programacion-III-main/Proyecto-Programacion-III/cmake-build-debug/CPackSourceConfig.cmake
+	"C:\Program Files\JetBrains\CLion 2023.2\bin\cmake\win\x64\bin\cpack.exe" --config ./CPackSourceConfig.cmake "C:/Users/sofia/Desktop/Documentos/2024/progra 3/Proyecto-Programacion-III/cmake-build-debug/CPackSourceConfig.cmake"
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -151,9 +151,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles" "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Descargas\Proyecto-Programacion-III-main\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\sofia\Desktop\Documentos\2024\progra 3\Proyecto-Programacion-III\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target

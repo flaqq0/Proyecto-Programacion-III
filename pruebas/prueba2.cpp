@@ -2,25 +2,22 @@
 #include <iostream>
 
 int main() {
-    MovieSearchEngine& engine = MovieSearchEngine::getInstance();
-    engine.loadMovies("C:/Users/sofia/Desktop/Documentos/2024/progra 3/proyecto-prueba/prueba.csv");
+    Buscador& engine = Buscador::getInstance();
+    //engine.loadMovies("C:/Users/sofia/Desktop/Documentos/2024/progra 3/proyecto-prueba/prueba.csv");
+    engine.loadCSV("C:/Users/sofia/Desktop/Documentos/2024/progra 3/proyecto-prueba/peliculas.csv");
 
-    engine.addStrategy(std::make_unique<TitleSearch>());
-    engine.addStrategy(std::make_unique<TagSearch>());
-    engine.addStrategy(std::make_unique<PlotSearch>());
+    engine.addEstrategia(make_unique<PorTitulo>());
+    engine.addEstrategia(make_unique<PorTag>());
+    engine.addEstrategia(make_unique<PorPlot>());
 
-    std::string query;
-    std::cout << "Enter search query: ";
-    std::cin >> query;
+    string query;
+    cout << "Buscar: ";
+    cin >> query;
 
-    auto results = engine.search(query);
+    auto res = engine.buscar(query);
 
-    std::cout << "Search results for query: " << query << std::endl;
-
-    for (const auto& movie : results) {
-        std::cout << "IMDB ID: " << movie.imdb_id << "\n"
-                  << "Title: " << movie.title << "\n"
-                  << "Tags: " << movie.tags << "\n\n";
+    for (const auto& movie : res) {
+        cout << "IMDB ID: " << movie.imdb_id << "\n" << "Title: " << movie.title << "\n" << "Tags: " << movie.tags << "\n\n";
     }
 
     return 0;
