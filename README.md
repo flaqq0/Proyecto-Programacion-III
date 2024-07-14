@@ -13,9 +13,14 @@ El proyecto consiste en desarrollar una plataforma de streaming que permita la b
 
 ## Diagrama (Flow chart?)
 
-## Explicación del código
-- Biblioteca estandar
-- Big O
-- Patrones de Diseño
+## Características
+1. Control de errores:
+2. Uso de paradigmas:
+   a) Programación Orinetada a Objetos (POO):
+   b) Programación Genérica:
+   c) Programación Concurrente:
+3. Uso de librería Estándar:
+4. Big O:
+5. Patrones de Diseño:
 
 ## Bibliografía
