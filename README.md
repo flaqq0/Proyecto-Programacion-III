@@ -18,7 +18,7 @@ El proyecto consiste en desarrollar una plataforma de streaming que permita la b
 A continuación detallaremos los contenidos de las carpetas principales creadas con un fin organizacional.
 
 - Directorio External:
-  Contiene bibliotecas externas que el proyecto utiliza. Estas bibliotecas provienen de un repositorio externo integrado en el proyecto, proporcionando funcionalidades necesarias adicionales.
+  Contiene bibliotecas externas que el proyecto utiliza. Estas bibliotecas provienen de un repositorio externo (https://github.com/yhirose/cpp-httplib) integrado en el proyecto, proporcionando funcionalidades necesarias adicionales.
     1. Librería "crow": Se utiliza en el archivo main.cpp para configurar un servidor web y define rutas HTTP para manejar solicitudes y responder con datos o archivos. En un principio define una ruta incial que devuelve un mensaje simple, después define una ruta que devuelve datos en formato JSON e inicia el servidor en el puerto 8080.
     2. Librería "cpp-httplib": Se utiliza en el archivo main.cpp para realizar solicitudes HTTP como cliente y permite hacer peticiones GET a servidores externos y procesar las respuestas. En main crea un cliente HTTP para realizar solicitudes a un servidor externo, ejecuta una solicitud GET y si la solicitud se lleva de forma exitosa, devuelve el cuerpo de la respuesta, de lo contrario, devuelve un error de tipo 500.
     3. Librería "nlohmann::json": Se utiliza en el archivo main.cpp para manejar datos en formato JSON. En main crea un objeto JSON y se convierte en una cadena para devolverlo como respuesta en la ruta /data.
