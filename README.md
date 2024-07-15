@@ -15,34 +15,34 @@ El proyecto consiste en desarrollar una plataforma de streaming que permita la b
 
 ## Diagrama (Flow chart?)......
 ```
-Inicio
-|
-v
+   Inicio
+      |
+      v
 Obtener instancia de MovieSearchEngine
-|
-v
+      |
+      v
 Cargar películas desde archivo CSV (con función loadMovies)
-|
-v
+      |
+      v
 Añadir estrategias de búsqueda (addStrategy)
-|
-v
+      |
+      v
 Realizar búsqueda (search)
-| | |
-v v v
-Ejecutar TitleSearch (hilo) Ejecutar TagSearch (hilo) Ejecutar PlotSearch (hilo)
-| | |
-v v v
+      |                                   |                                |
+      v                                   v                                v
+Ejecutar TitleSearch (hilo)       Ejecutar TagSearch (hilo)      Ejecutar PlotSearch (hilo)
+      |
+      v
 Combinar resultados de búsqueda (bloqueo mutex)
-|
-v
+      |
+      v
 Eliminar duplicados y ordenar resultados
-|
-v
+      |
+      v
 Mostrar resultados al usuario
-|
-v
-Fin
+      |
+      v
+     Fin
 ```
  
 ## Estructura
