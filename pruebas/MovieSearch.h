@@ -9,6 +9,15 @@
 #include <thread>
 #include <mutex>
 #include <memory>
+#include <iostream>
+#include <algorithm>
+#include <stack>
+#include <fstream>
+#include <sstream>
+#include <stdexcept>
+#include <regex>
+#include <future>
+
 using namespace std;
 
 class Movie {
@@ -28,6 +37,28 @@ public:
     bool operator<(const Movie& other) const {
         return imdb_id < other.imdb_id;
     }
+};
+
+class TrieNode {
+public:
+    unordered_map<char, shared_ptr<TrieNode>> children;
+    vector<Movie> movies;
+    bool endWord;
+
+    TrieNode() : endWord(false) {}
+};
+
+class Trie {
+private:
+    shared_ptr<TrieNode> root;
+
+public:
+    Trie() : root(make_shared<TrieNode>()) {}
+
+    void insert(const string& word, const Movie& movie);
+
+    vector<Movie> search(const string& query);
+
 };
 
 class Estrategia {
@@ -55,18 +86,18 @@ private:
     vector<Movie> movies;
     unordered_map<string, Movie> movieMap;
     vector<unique_ptr<Estrategia>> strategies;
-    priority_queue<pair<int, Movie>> searchResults;
-    mutex resultMutex;
+    Trie titleTrie;
+    Trie tagTrie;
+    Trie plotTrie;
 
     Buscador() = default;
     int calcularRelevancia(const Movie& movie, const string& query);
 
 public:
     static Buscador& getInstance();
-    void addEstrategia(unique_ptr<Estrategia> strategy);
+    void addEstrategia(unique_ptr<Estrategia> estrategia);
     vector<Movie> buscar(const string& query);
-    void loadMovies(const string& filePath);
-    void loadCSV(const string& filePath);
+    void loadCSV(const string& path);
 
     template<typename T>
     int contador(const T& text, const T& word);

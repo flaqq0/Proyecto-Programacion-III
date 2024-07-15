@@ -6,8 +6,8 @@ int main() {
 
     try {
         engine.loadCSV("C:/Users/sofia/Desktop/Documentos/2024/progra 3/proyecto-prueba/peliculas.csv");
-    } catch (const std::exception& e) {
-        cout << "Error loading CSV: " << e.what() << std::endl;
+    } catch (const exception& e) {
+        cout << "Error loading CSV: " << e.what() << endl;
         return 1;
     }
 
