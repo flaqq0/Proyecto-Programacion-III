@@ -8,7 +8,7 @@ Proyecto final del curso de Programación III de la Universidad de Ingeniería y
 - Renato García (202310495)
 
 ## Presentación
-Link: ......
+Para poder visualizar la parte gráfica del proyecto, se debe runear el main y una vez esté funcionando, ingresar a http://localhost:8080/
 
 ## Descripción del Proyecto
 El proyecto consiste en desarrollar una plataforma de streaming que permita la búsqueda y visualización de películas. El programa lee la base de datos indicada en formato .csv, previamente limpiada, esta se encuentra almacenada en un vector (vector<Movie>), una estructura de datos eficiente para la búsqueda rápida y permite buscar películas por palabras clave o tags específicos. La plataforma muestra las cinco películas más relevantes y proporciona opciones para visualizar más coincidencias.
