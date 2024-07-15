@@ -14,34 +14,36 @@ Para poder visualizar la parte gráfica del proyecto, se debe runear el main y u
 El proyecto consiste en desarrollar una plataforma de streaming que permita la búsqueda y visualización de películas. El programa lee la base de datos indicada en formato .csv, esta se encuentra almacenada en un vector (vector<Movie>), una estructura de datos eficiente para la búsqueda rápida y permite buscar películas por palabras clave o tags específicos. La plataforma muestra las cinco películas más relevantes y proporciona opciones para visualizar más coincidencias.
 
 ## Diagrama (Flow chart?)......
+```
 Inicio
-  |
-  v
+|
+v
 Obtener instancia de MovieSearchEngine
-  |
-  v
+|
+v
 Cargar películas desde archivo CSV (con función loadMovies)
-  |
-  v
+|
+v
 Añadir estrategias de búsqueda (addStrategy)
-  |
-  v
+|
+v
 Realizar búsqueda (search)
-          |                               |                             |
-          v                               v                             v           
-Ejecutar TitleSearch (hilo)    Ejecutar TagSearch (hilo)    Ejecutar PlotSearch (hilo)
-          |                               |                             |
-          v                               v                             v
+| | |
+v v v
+Ejecutar TitleSearch (hilo) Ejecutar TagSearch (hilo) Ejecutar PlotSearch (hilo)
+| | |
+v v v
 Combinar resultados de búsqueda (bloqueo mutex)
-  |
-  v
+|
+v
 Eliminar duplicados y ordenar resultados
-  |
-  v
+|
+v
 Mostrar resultados al usuario
-  |
-  v
- Fin
+|
+v
+Fin
+```
  
 ## Estructura
 A continuación detallaremos los contenidos de las carpetas principales creadas con un fin organizacional.
