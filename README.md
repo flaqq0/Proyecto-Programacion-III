@@ -40,7 +40,7 @@ Contiene los archivos relacionados con la interfaz web del proyecto. Estos archi
   6. peliculas.csv: Es nuestro archivo de datos que contiene información de las películas en formato CSV, utilizado para cargar y procesar los datos de las películas.
 
 ## Características 
-(usar enums o namespace, manejo de Excepciones en la Solicitud HTTP en main, )
+(usar enums o namespace, manejo de Excepciones en la Solicitud HTTP en main, patron de diseño)
 - Eficiencia con gran volumen de información:
   1. En cleanData.cpp, se usa std::vector para almacenar los datos de las películas. std::vector es una estructura de datos que permite un acceso rápido y eficiente a los elementos y tiene un buen desempeño en términos de inserción y recorrido, lo que es crucial cuando se manejan grandes volúmenes de datos.
      
@@ -60,14 +60,17 @@ Contiene los archivos relacionados con la interfaz web del proyecto. Estos archi
   3. El uso del archivo ALL.h centraliza la inclusión de cabeceras y la inicialización de datos y objetos esenciales, mejorando la organización y la reutilización del código.
  
 - Uso de paradigmas:
-  1. Programación Orinetada a Objetos (POO):
-  2. Programación Genérica:
-  3. Programación Concurrente:
-- Uso de librería Estándar:
+  1. Programación Orientada a Objetos (POO): Se evidencia el uso al incluir clases como "Movie","Planes" o "Usuario". Encapsulando atributos y métodos en la clase.
+  2. Programación Genérica: En el archivo MovieSearch.h, se define una clase genérica "SearchStrategy" que utiliza una plantilla para definir estrategias de búsqueda sobre cualquier tipo de datos. Luego, se derivan clases específicas para buscar películas por diferentes criterios. Además se usa unique_ptr para manejar la memoria de las estrategias de búsqueda.
+  3. Programación Concurrente: En el archivo MovieSearch.h se utilizan hilos para ejecutar las estrategias de búsqueda en paralelo, mejorando la eficiencia de las búsquedas sobre grandes volúmenes de datos. 
+     
+- Uso de librería Estándar: Los contenedores como std::vector y std::priority_queue se utilizan para almacenar y organizar datos de películas y resultados de búsqueda, permitiendo una manipulación eficiente de grandes volúmenes de información. Las cadenas de caracteres y flujos, a través de std::string, std::ifstream, y std::stringstream, permiten el manejo y procesamiento de texto, así como la lectura de archivos CSV. La concurrencia se maneja mediante std::thread y std::mutex, lo que permite la ejecución paralela de tareas y asegura el acceso sincronizado a los recursos compartidos, mejorando así el rendimiento del sistema. Además, los algoritmos de la biblioteca estándar, como std::sort y std::unique, se emplean para ordenar y eliminar duplicados en los resultados de búsqueda, mientras que std::lock_guard garantiza la seguridad en la manipulación de datos concurrentes. El manejo de errores se realiza mediante excepciones, usando std::runtime_error para gestionar situaciones inesperadas como la imposibilidad de abrir un archivo, asegurando que el sistema pueda reaccionar adecuadamente a fallos en tiempo de ejecución. Estos casos se han llegado a dar con la biblioteca estándar que C++ proporciona.
   
 - Big O:
 - Patrones de Diseño:
-
+  1. Singleton: Se implementa en la clase MovieSearchEngine. Esto asegura que solo exista una instancia de MovieSearchEngine durante la ejecución del programa, lo cual es crucial para la consistencia y la gestión centralizada de las búsquedas de películas, ahorrando así memoria y recursos al evitar la creación de múltiples instancias de la misma clase.
+  2. Estrategia: Se implementa mediante la clase base SearchStrategy y sus clases derivadas como TitleSearch, TagSearch y PlotSearch. Esto permite definir diferentes estrategias de búsqueda y aplicarlas de manera flexible según las necesidades.
+     
 ## Bibliografía
 CodeLikeAGirl. (2024, 20 febrero). _Developing a basic search engine in C++: an adventure in coding - code with C. Code With C._ https://www.codewithc.com/developing-a-basic-search-engine-in-c/?amp=1
 
