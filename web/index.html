@@ -5,17 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Streaming Service</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
 <div class="container">
-    <h1>Ilimitadas películas, TV shows, y más</h1>
+    <h1>LOGRE CORRER EL PROYECTO</h1>
+    <h2>Ilimitadas películas, TV shows, y más</h2>
     <p>Mira en cualquier lugar. Cancela en cualquier momento.</p>
     <p>¿Listo para mirar? Ingresa tu email para crear una cuenta o restaurar tu membresía.</p>
-    <form action="/auth/register" method="get">
-        <input type="email" placeholder="Dirección de Email">
+    <form id="emailForm">
+        <input
+                type="email"
+                id="emailInput"
+                placeholder="Dirección de Email"
+                value="mateo@example.com"
+        required
+        />
         <button type="submit">Comenzar</button>
     </form>
 </div>
+
+<script src="script.js" defer></script>
 </body>
 </html>
