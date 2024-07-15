@@ -1,20 +1,8 @@
-// scripts/script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
 
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('emailForm');
-    const emailInput = document.getElementById('emailInput');
-
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const email = emailInput.value;
-
-        if (email) {
-            console.log('Email enviado:', email);
-            // Redirigir al usuario a la página de registro
-            window.location.href = '/auth/register';
-        } else {
-            alert('Por favor, ingresa una dirección de email válida.');
-        }
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Evita la acción por defecto del formulario
+        window.location.href = form.action; // Redirige a la URL especificada en action
     });
 });

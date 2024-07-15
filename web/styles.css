@@ -1,13 +1,15 @@
 /* styles/styles.css */
 
 body {
-    font-family: Arial, sans-serif;
-    background: black;
-    background-size: cover;
+    font-family: 'Roboto', sans-serif;
     color: white;
     text-align: center;
     margin: 0;
     padding: 0;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuRyrYB1qyLtiO0Y519pSfWTszGvH_mQpyGQ&s'); /* Reemplaza con la URL de la imagen de Google */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .container {
     display: flex;
@@ -15,11 +17,17 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
 }
 h1 {
-    font-size: 3em;
+    font-size: 7em;
     margin-bottom: 0.5em;
+    padding: 0.5em; /* Agregamos padding */
+    border: 2px solid #000080; /* Agregamos borde */
+    border-radius: 12px; /* Redondeamos los bordes */
+    background-color: rgba(0, 200, 200, 1); /* Fondo semi-transparente blanco */
 }
 p {
     font-size: 1.2em;
@@ -38,14 +46,14 @@ input[type="email"] {
     border-radius: 0.25em;
 }
 button {
-    padding: 0.5em 1em;
-    font-size: 1em;
-    background-color: #e50914;
+    padding: 0.5em 2em;
+    font-size: 2em;
+    background-color: #40E0D0;
     color: white;
     border: none;
-    border-radius: 0.25em;
+    border-radius: 0.5em;
     cursor: pointer;
 }
 button:hover {
-    background-color: #f6121d;
+    background-color: #40E0D0;
 }
