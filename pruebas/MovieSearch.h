@@ -5,11 +5,10 @@
 #include <vector>
 #include <queue>
 #include <unordered_map>
+#include <unordered_set>
 #include <thread>
 #include <mutex>
 #include <memory>
-#include "external/json/single_include/nlohmann/json.hpp"
-using json = nlohmann::json;
 using namespace std;
 
 class Movie {
@@ -20,6 +19,8 @@ public:
     string tags;
     string split;
     string synopsis_source;
+
+    Movie() = default;
 
     Movie(const string& id, const string& t, const string& plot, const string& tag, const string& sp, const string& source)
             : imdb_id(id), title(t), plot_synopsis(plot), tags(tag), split(sp), synopsis_source(source) {}
@@ -52,6 +53,7 @@ public:
 class Buscador {
 private:
     vector<Movie> movies;
+    unordered_map<string, Movie> movieMap;
     vector<unique_ptr<Estrategia>> strategies;
     priority_queue<pair<int, Movie>> searchResults;
     mutex resultMutex;
@@ -65,7 +67,9 @@ public:
     vector<Movie> buscar(const string& query);
     void loadMovies(const string& filePath);
     void loadCSV(const string& filePath);
-    int contador(const string& text, const string& word);
+
+    template<typename T>
+    int contador(const T& text, const T& word);
 };
 
 #endif //PROYECTO_PRUEBA_MOVIESEARCH_H
