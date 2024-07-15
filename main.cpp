@@ -52,7 +52,18 @@ int main() {
         string js = read_file("../web/auth/register.js");
         res.set_content(js, "application/javascript");
     });
-
+    svr.Get("/browse", [](const httplib::Request&, httplib::Response& res) {
+        string html = read_file("../web/browse.html");
+        res.set_content(html, "text/html");
+    });
+    svr.Get("/browse.css", [](const httplib::Request&, httplib::Response& res) {
+            string css = read_file("../web/browse.css");
+            res.set_content(css, "text/css");
+        });
+    svr.Get("/browse.js", [](const httplib::Request&, httplib::Response& res) {
+        string js = read_file("../web/browse.js");
+        res.set_content(js, "application/javascript");
+    });
 
     svr.listen("localhost", 8080);
     return 0;
