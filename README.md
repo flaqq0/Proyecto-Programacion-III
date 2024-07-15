@@ -8,17 +8,48 @@ Proyecto final del curso de Programación III de la Universidad de Ingeniería y
 - Renato García (202310495)
 
 ## Presentación
-Link: ......
+Para poder visualizar la parte gráfica del proyecto, se debe runear el main y una vez esté funcionando, ingresar a http://localhost:8080/
 
 ## Descripción del Proyecto
-El proyecto consiste en desarrollar una plataforma de streaming que permita la búsqueda y visualización de películas. El programa lee la base de datos indicada en formato .csv, previamente limpiada, esta se encuentra almacenada en un vector (vector<Movie>), una estructura de datos eficiente para la búsqueda rápida y permite buscar películas por palabras clave o tags específicos. La plataforma muestra las cinco películas más relevantes y proporciona opciones para visualizar más coincidencias.
+El proyecto consiste en desarrollar una plataforma de streaming que permita la búsqueda y visualización de películas. El programa lee la base de datos indicada en formato .csv, esta se encuentra almacenada en un vector (vector<Movie>), una estructura de datos eficiente para la búsqueda rápida y permite buscar películas por palabras clave o tags específicos. La plataforma muestra las cinco películas más relevantes y proporciona opciones para visualizar más coincidencias.
 
 ## Diagrama (Flow chart?)......
+```
+   Inicio
+      |
+      v
+Obtener instancia de MovieSearchEngine
+      |
+      v
+Cargar películas desde archivo CSV (con función loadMovies)
+      |
+      v
+Añadir estrategias de búsqueda (addStrategy)
+      |
+      v
+Realizar búsqueda (search)
+      |                                   |                                |
+      v                                   v                                v
+Ejecutar TitleSearch (hilo)       Ejecutar TagSearch (hilo)      Ejecutar PlotSearch (hilo)
+      |
+      v
+Combinar resultados de búsqueda (bloqueo mutex)
+      |
+      v
+Eliminar duplicados y ordenar resultados
+      |
+      v
+Mostrar resultados al usuario
+      |
+      v
+     Fin
+```
+ 
 ## Estructura
 A continuación detallaremos los contenidos de las carpetas principales creadas con un fin organizacional.
 
 - Directorio External:
-  Contiene bibliotecas externas que el proyecto utiliza. Estas bibliotecas provienen de un repositorio externo integrado en el proyecto, proporcionando funcionalidades necesarias adicionales.
+  Contiene bibliotecas externas que el proyecto utiliza. Estas bibliotecas provienen de un repositorio externo (https://github.com/yhirose/cpp-httplib) integrado en el proyecto, proporcionando funcionalidades necesarias adicionales.
     1. Librería "crow": Se utiliza en el archivo main.cpp para configurar un servidor web y define rutas HTTP para manejar solicitudes y responder con datos o archivos. En un principio define una ruta incial que devuelve un mensaje simple, después define una ruta que devuelve datos en formato JSON e inicia el servidor en el puerto 8080.
     2. Librería "cpp-httplib": Se utiliza en el archivo main.cpp para realizar solicitudes HTTP como cliente y permite hacer peticiones GET a servidores externos y procesar las respuestas. En main crea un cliente HTTP para realizar solicitudes a un servidor externo, ejecuta una solicitud GET y si la solicitud se lleva de forma exitosa, devuelve el cuerpo de la respuesta, de lo contrario, devuelve un error de tipo 500.
     3. Librería "nlohmann::json": Se utiliza en el archivo main.cpp para manejar datos en formato JSON. En main crea un objeto JSON y se convierte en una cadena para devolverlo como respuesta en la ruta /data.
@@ -40,7 +71,7 @@ Contiene los archivos relacionados con la interfaz web del proyecto. Estos archi
   6. peliculas.csv: Es nuestro archivo de datos que contiene información de las películas en formato CSV, utilizado para cargar y procesar los datos de las películas.
 
 ## Características 
-(usar enums o namespace, manejo de Excepciones en la Solicitud HTTP en main, patron de diseño)
+(manejo de Excepciones en la Solicitud HTTP en main)
 - Eficiencia con gran volumen de información:
   1. En cleanData.cpp, se usa std::vector para almacenar los datos de las películas. std::vector es una estructura de datos que permite un acceso rápido y eficiente a los elementos y tiene un buen desempeño en términos de inserción y recorrido, lo que es crucial cuando se manejan grandes volúmenes de datos.
      
@@ -67,6 +98,9 @@ Contiene los archivos relacionados con la interfaz web del proyecto. Estos archi
 - Uso de librería Estándar: Los contenedores como std::vector y std::priority_queue se utilizan para almacenar y organizar datos de películas y resultados de búsqueda, permitiendo una manipulación eficiente de grandes volúmenes de información. Las cadenas de caracteres y flujos, a través de std::string, std::ifstream, y std::stringstream, permiten el manejo y procesamiento de texto, así como la lectura de archivos CSV. La concurrencia se maneja mediante std::thread y std::mutex, lo que permite la ejecución paralela de tareas y asegura el acceso sincronizado a los recursos compartidos, mejorando así el rendimiento del sistema. Además, los algoritmos de la biblioteca estándar, como std::sort y std::unique, se emplean para ordenar y eliminar duplicados en los resultados de búsqueda, mientras que std::lock_guard garantiza la seguridad en la manipulación de datos concurrentes. El manejo de errores se realiza mediante excepciones, usando std::runtime_error para gestionar situaciones inesperadas como la imposibilidad de abrir un archivo, asegurando que el sistema pueda reaccionar adecuadamente a fallos en tiempo de ejecución. Estos casos se han llegado a dar con la biblioteca estándar que C++ proporciona.
   
 - Big O:
+  1. El algoritmo std::sort de la biblioteca estándar de C++ es un ejemplo de un algoritmos de Ordenamiento con complejidad O(n log n). En el archivo MovieSearch.cpp, el método search utiliza std::sort para ordenar los resultados de búsqueda. Esto asegura que los resultados estén ordenados antes de eliminar duplicados y presentarlos al usuario.
+  2. En la clase TitleSearch, se implementa una búsqueda lineal para encontrar películas cuyo título contiene una cadena específica, tiene una complejidad O(n) donde n es el número de películas. Esta búsqueda lineal implica recorrer cada película y verificar si el título contiene la cadena de búsqueda. Similar sucede con los otros 2 criterios de busqueda.
+      
 - Patrones de Diseño:
   1. Singleton: Se implementa en la clase MovieSearchEngine. Esto asegura que solo exista una instancia de MovieSearchEngine durante la ejecución del programa, lo cual es crucial para la consistencia y la gestión centralizada de las búsquedas de películas, ahorrando así memoria y recursos al evitar la creación de múltiples instancias de la misma clase.
   2. Estrategia: Se implementa mediante la clase base SearchStrategy y sus clases derivadas como TitleSearch, TagSearch y PlotSearch. Esto permite definir diferentes estrategias de búsqueda y aplicarlas de manera flexible según las necesidades.
@@ -78,5 +112,6 @@ Mayurji. (s. f.). _GitHub - Mayurji/Understanding-Search-Engine-Using-Cplusplus
 
 _MPST: Movie Plot Synopses with Tags._ (2019, 16 abril). Kaggle. https://www.kaggle.com/datasets/cryptexcode/mpst-movie-plot-synopses-with-tags/data?select=partition.json
 
-_C++ Program to Implement Weight Balanced Tree._ (2024). Sanfoundry. Recuperado 14 de julio de 2024, de https://www.sanfoundry.com/cpp-program-implement-weight-balanced-tree/
-Yhirose. (s. f.). _GitHub - yhirose/cpp-httplib: A C++ header-only HTTP/HTTPS server and client library._ GitHub. https://github.com/yhirose/cpp-httplib
+GeeksforGeeks. (2024, 7 junio). Trie Data Structure  Insert and Search. GeeksforGeeks. https://www.geeksforgeeks.org/trie-insert-and-search/
+
+_Yhirose. (s. f.). _GitHub - yhirose/cpp-httplib: A C++ header-only HTTP/HTTPS server and client library._ GitHub. https://github.com/yhirose/cpp-httplib

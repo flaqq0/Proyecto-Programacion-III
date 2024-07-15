@@ -1,77 +1,84 @@
 #include "MovieSearch.h"
-#include <fstream>
-#include <sstream>
-#include <iostream>
-#include <algorithm>
-#include <stdexcept>
-#include <regex>
-#include <future>
-
 using namespace std;
+
+void Trie::insert(const string& word, const Movie& movie) {
+    auto node = root;
+    for (const char& ch : word) {
+        char lower_ch = tolower(ch);
+        if (!node->children.count(lower_ch)) {
+            node->children[lower_ch] = make_shared<TrieNode>();
+        }
+        node = node->children[lower_ch];
+    }
+    node->endWord = true;
+    node->movies.push_back(movie);
+}
+
+vector<Movie> Trie::search(const string& query) {
+    vector<Movie> result;
+    auto node = root;
+    for (const char& ch : query) {
+        char lower_ch = tolower(ch);
+        if (!node->children.count(lower_ch)) {
+            return {}; // No match found
+        }
+        node = node->children[lower_ch];
+    }
+    if (node->endWord) {
+        result.insert(result.end(), node->movies.begin(), node->movies.end());
+    }
+
+    stack<shared_ptr<TrieNode>> stack;
+    stack.push(node);
+    while (!stack.empty()) {
+        auto currentNode = stack.top();
+        stack.pop();
+        if (currentNode->endWord) {
+            result.insert(result.end(), currentNode->movies.begin(), currentNode->movies.end());
+        }
+        for (const auto& child : currentNode->children) {
+            stack.push(child.second);
+        }
+    }
+
+    return result;
+}
 
 Buscador& Buscador::getInstance() {
     static Buscador instance;
     return instance;
 }
 
-void Buscador::loadMovies(const string& filePath) {
-    ifstream file(filePath);
-    if (!file.is_open()) {
-        throw runtime_error("Error opening file: " + filePath);
-    }
-
-    string line;
-    while (getline(file, line)) {
-        stringstream ss(line);
-        string imdb_id, title, plot_synopsis, tags, split, synopsis_source;
-
-        getline(ss, imdb_id, ';');
-        getline(ss, title, ';');
-        getline(ss, plot_synopsis, ';');
-        getline(ss, tags, ';');
-        getline(ss, split, ';');
-        getline(ss, synopsis_source, ';');
-
-        Movie movie(imdb_id, title, plot_synopsis, tags, split, synopsis_source);
-        movies.push_back(movie);
-        movieMap[imdb_id] = movie;
-    }
-
-    file.close();
+string trim(const string& s) {
+    size_t a = s.find_first_not_of(' ');
+    if (a == string::npos) return "";
+    size_t b = s.find_last_not_of(' ');
+    return s.substr(a, (b - a + 1));
 }
 
-std::string trim(const std::string& str) {
-    size_t first = str.find_first_not_of(' ');
-    if (first == std::string::npos) return "";
-    size_t last = str.find_last_not_of(' ');
-    return str.substr(first, (last - first + 1));
-}
-
-std::vector<std::string> splitCSVLine(const std::string& line) {
-    std::vector<std::string> result;
-    std::stringstream ss(line);
-    std::string field;
-    bool in_quotes = false;
+vector<string> splitLinea(const string &l) {
+    vector<string> res;
+    stringstream ll(l);
+    string lll;
+    bool comillas = false;
     char c;
-    std::string current_field;
+    string actual;
 
-    while (ss.get(c)) {
-        if (c == '"' && (current_field.empty() || current_field.back() != '\\')) {
-            in_quotes = !in_quotes;
-        } else if (c == ',' && !in_quotes) {
-            result.push_back(trim(current_field));
-            current_field.clear();
-        } else {
-            current_field += c;
-        }
+    while (ll.get(c)) {
+        if (c == '"' && (actual.empty() || actual.back() != '\\')) {
+            comillas = !comillas;
+        }else if (c == ',' && !comillas) {
+            res.push_back(trim(actual));
+            actual.clear();
+        } else { actual += c;}
     }
-    result.push_back(trim(current_field));
+    res.push_back(trim(actual));
 
-    return result;
+    return res;
 }
 
-Movie parseLine(const std::string& line) {
-    std::vector<std::string> fields = splitCSVLine(line);
+Movie asignar (const string &linea) {
+    vector<string> fields = splitLinea(linea);
     Movie movie;
 
     if (fields.size() >= 6) {
@@ -86,134 +93,167 @@ Movie parseLine(const std::string& line) {
     return movie;
 }
 
-std::vector<Movie> readCSV(const std::string& filename) {
-    std::vector<Movie> movies;
-    std::ifstream file(filename);
-    std::string line;
-    std::string combined_line;
-    std::regex imdb_id_pattern(R"(^tt\d{7})");
+vector<Movie> readCSV(const string& path) {
+    vector<Movie> movies;
+    ifstream file(path);
+    string linea;
+    string combl;
+    regex imdb_id_pattern(R"(^tt\d{7})");
 
-    std::getline(file, line);
+    getline(file, linea);
 
-    while (std::getline(file, line)) {
-        if (std::regex_search(line, imdb_id_pattern)) {
-            if (!combined_line.empty()) {
-                movies.push_back(parseLine(combined_line));
-                combined_line.clear();
+    while (getline(file, linea)) {
+        if (regex_search(linea, imdb_id_pattern)) {
+            if (!combl.empty()) {
+                movies.push_back(asignar(combl));
+                combl.clear();
             }
         }
-
-        if (!combined_line.empty()) {
-            combined_line += "\n";
-        }
-        combined_line += line;
+        if (!combl.empty()) {combl += "\n";}
+        combl += linea;
     }
 
-    if (!combined_line.empty()) {
-        movies.push_back(parseLine(combined_line));
-    }
+    if (!combl.empty()) {movies.push_back(asignar(combl));}
 
     file.close();
     return movies;
 }
 
-void Buscador::loadCSV(const string& filePath) {
-    movies = readCSV(filePath);
+void Buscador::loadCSV(const string& path) {
+    movies = readCSV(path);
     for (const auto& movie : movies) {
         movieMap[movie.imdb_id] = movie;
+        titleTrie.insert(movie.title, movie);
+        tagTrie.insert(movie.tags, movie);
+        plotTrie.insert(movie.plot_synopsis, movie);
     }
-}
-
-void Buscador::addEstrategia(unique_ptr<Estrategia> strategy) {
-    strategies.push_back(move(strategy));
 }
 
 vector<Movie> Buscador::buscar(const string& query) {
+    string lowerQuery = query;
+    transform(lowerQuery.begin(), lowerQuery.end(), lowerQuery.begin(), ::tolower);
+
     vector<future<vector<Movie>>> futures;
 
     for (const auto& strategy : strategies) {
-        futures.push_back(async(&Estrategia::search, strategy.get(), movies, query));
+        if (dynamic_cast<PorTitulo*>(strategy.get())) {
+            futures.push_back(async([this, lowerQuery]() { return titleTrie.search(lowerQuery); }));
+        } else if (dynamic_cast<PorTag*>(strategy.get())) {
+            futures.push_back(async([this, lowerQuery]() { return tagTrie.search(lowerQuery); }));
+        } else if (dynamic_cast<PorPlot*>(strategy.get())) {
+            futures.push_back(async([this, lowerQuery]() { return plotTrie.search(lowerQuery); }));
+        }
     }
 
-    unordered_set<string> seen;
-    vector<Movie> results;
+    unordered_set<string> visto;
+    vector<Movie> res;
 
     for (auto& future : futures) {
         auto strategyResults = future.get();
         for (const auto& movie : strategyResults) {
-            if (seen.find(movie.imdb_id) == seen.end()) {
-                seen.insert(movie.imdb_id);
-                results.push_back(movie);
+            if (visto.find(movie.imdb_id) == visto.end()) {
+                visto.insert(movie.imdb_id);
+                res.push_back(movie);
             }
         }
     }
 
-    vector<pair<int, Movie>> relevantResults;
-    for (const auto& movie : results) {
-        int relevance = calcularRelevancia(movie, query);
-        relevantResults.emplace_back(relevance, movie);
+    vector<pair<int, Movie>> masRelevante;
+    for (const auto& movie : res) {
+        int relevance = calcularRelevancia(movie, lowerQuery);
+        masRelevante.emplace_back(relevance, movie);
     }
 
-    sort(relevantResults.begin(), relevantResults.end(), [](const pair<int, Movie>& a, const pair<int, Movie>& b) {
+    sort(masRelevante.begin(), masRelevante.end(), [](const pair<int, Movie>& a, const pair<int, Movie>& b) {
         return a.first > b.first;
     });
 
-    vector<Movie> topResults;
+    vector<Movie> top;
     int count = 0;
-    for (const auto& pair : relevantResults) {
-        if (count >= 5) break;
-        topResults.push_back(pair.second);
+    for (const auto& pair : masRelevante) {
+        if (count >= 10) break;
+        top.push_back(pair.second);
         ++count;
     }
 
-    return topResults;
+    return top;
+}
+
+void Buscador::addEstrategia(unique_ptr<Estrategia> estrategia) {
+    strategies.push_back(move(estrategia));
+}
+
+vector<string> splitQuery(const string& query) {
+    vector<string> keywords;
+    stringstream ss(query);
+    string word;
+    while (ss >> word) {
+        keywords.push_back(word);
+    }
+    return keywords;
 }
 
 int Buscador::calcularRelevancia(const Movie& movie, const string& query) {
+    string lowerTitle = movie.title;
+    transform(lowerTitle.begin(), lowerTitle.end(), lowerTitle.begin(), ::tolower);
+
+    string lowerPlot = movie.plot_synopsis;
+    transform(lowerPlot.begin(), lowerPlot.end(), lowerPlot.begin(), ::tolower);
+
+    string lowerTags = movie.tags;
+    transform(lowerTags.begin(), lowerTags.end(), lowerTags.begin(), ::tolower);
+
     int relevance = 0;
-    relevance += contador(movie.title, query) * 3;
-    relevance += contador(movie.tags, query) * 2;
-    relevance += contador(movie.plot_synopsis, query);
+    vector<string> keywords = splitQuery(query);
+
+    for (const auto& keyword : keywords) {
+        if (lowerTitle.find(keyword) != string::npos) {
+            relevance += 20;
+        }
+        if (lowerPlot.find(keyword) != string::npos) {
+            relevance += 10;
+        }
+        if (lowerTags.find(keyword) != string::npos) {
+            relevance += 10;
+        }
+    }
+
     return relevance;
 }
 
-template<typename T>
-int Buscador::contador(const T& text, const T& word) {
-    int count = 0;
-    size_t pos = text.find(word, 0);
-    while (pos != T::npos) {
-        ++count;
-        pos = text.find(word, pos + word.length());
-    }
-    return count;
-}
 
 vector<Movie> PorTitulo::search(const vector<Movie>& movies, const string& query) {
-    vector<Movie> results;
+    vector<Movie> res;
     for (const auto& movie : movies) {
-        if (movie.title.find(query) != string::npos) {
-            results.push_back(movie);
+        string lowercaseTitle = movie.title;
+        transform(lowercaseTitle.begin(), lowercaseTitle.end(), lowercaseTitle.begin(), ::tolower);
+        if (lowercaseTitle.find(query) != string::npos) {
+            res.push_back(movie);
         }
     }
-    return results;
+    return res;
 }
 
 vector<Movie> PorTag::search(const vector<Movie>& movies, const string& query) {
-    vector<Movie> results;
+    vector<Movie> res;
     for (const auto& movie : movies) {
-        if (movie.tags.find(query) != string::npos) {
-            results.push_back(movie);
+        string lowercaseTags = movie.tags;
+        transform(lowercaseTags.begin(), lowercaseTags.end(), lowercaseTags.begin(), ::tolower);
+        if (lowercaseTags.find(query) != string::npos) {
+            res.push_back(movie);
         }
     }
-    return results;
+    return res;
 }
 
 vector<Movie> PorPlot::search(const vector<Movie>& movies, const string& query) {
-    vector<Movie> results;
+    vector<Movie> res;
     for (const auto& movie : movies) {
-        if (movie.plot_synopsis.find(query) != string::npos) {
-            results.push_back(movie);
+        string lowercasePlot = movie.plot_synopsis;
+        transform(lowercasePlot.begin(), lowercasePlot.end(), lowercasePlot.begin(), ::tolower);
+        if (lowercasePlot.find(query) != string::npos) {
+            res.push_back(movie);
         }
     }
-    return results;
+    return res;
 }
