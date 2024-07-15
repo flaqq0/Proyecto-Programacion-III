@@ -24,3 +24,8 @@ El proyecto consiste en desarrollar una plataforma de streaming que permita la b
 5. Patrones de Diseño:
 
 ## Bibliografía
+CodeLikeAGirl. (2024, 20 febrero). _Developing a basic search engine in C++: an adventure in coding - code with C. Code With C._ https://www.codewithc.com/developing-a-basic-search-engine-in-c/?amp=1
+Mayurji. (s. f.). _GitHub - Mayurji/Understanding-Search-Engine-Using-Cplusplus: Understanding Search Engine concepts and implementing the same using C++ and STL._ GitHub. https://github.com/Mayurji/Understanding-Search-Engine-Using-Cplusplus
+_MPST: Movie Plot Synopses with Tags._ (2019, 16 abril). Kaggle. https://www.kaggle.com/datasets/cryptexcode/mpst-movie-plot-synopses-with-tags/data?select=partition.json
+_C++ Program to Implement Weight Balanced Tree._ (2024). Sanfoundry. Recuperado 14 de julio de 2024, de https://www.sanfoundry.com/cpp-program-implement-weight-balanced-tree/
+Yhirose. (s. f.). _GitHub - yhirose/cpp-httplib: A C++ header-only HTTP/HTTPS server and client library._ GitHub. https://github.com/yhirose/cpp-httplib
