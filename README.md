@@ -17,24 +17,27 @@ El proyecto consiste en desarrollar una plataforma de streaming que permita la b
 ## Estructura
 A continuación detallaremos los contenidos de las carpetas principales creadas con un fin organizacional.
 
-- Directorio External: Contiene bibliotecas externas que el proyecto utiliza. Estas bibliotecas provienen de un repositorio externo integrado en el proyecto, proporcionando funcionalidades necesarias adicionales.
+- Directorio External:
+  Contiene bibliotecas externas que el proyecto utiliza. Estas bibliotecas provienen de un repositorio externo integrado en el proyecto, proporcionando funcionalidades necesarias adicionales.
     1. Librería "crow": Se utiliza en el archivo main.cpp para configurar un servidor web y define rutas HTTP para manejar solicitudes y responder con datos o archivos. En un principio define una ruta incial que devuelve un mensaje simple, después define una ruta que devuelve datos en formato JSON e inicia el servidor en el puerto 8080.
     2. Librería "cpp-httplib": Se utiliza en el archivo main.cpp para realizar solicitudes HTTP como cliente y permite hacer peticiones GET a servidores externos y procesar las respuestas. En main crea un cliente HTTP para realizar solicitudes a un servidor externo, ejecuta una solicitud GET y si la solicitud se lleva de forma exitosa, devuelve el cuerpo de la respuesta, de lo contrario, devuelve un error de tipo 500.
     3. Librería "nlohmann::json": Se utiliza en el archivo main.cpp para manejar datos en formato JSON. En main crea un objeto JSON y se convierte en una cadena para devolverlo como respuesta en la ruta /data.
 
-- Directorio logOrRegis: Incluye archivos relacionados con la gestión de usuarios (Autenticación). Específicamente, contiene los archivos Planes.cpp y Planes.h estos representan diferentes planes de suscripción que un usuario puede tener. Usuario.cpp y Usuario.h representa a los usuarios del sistema y maneja su información personal y de autenticación. Por ello, el directorio otorga las funciones necesarias para el registro, autenticación y administración de planes de suscripción.
+- Directorio logOrRegis:
+Incluye archivos relacionados con la gestión de usuarios (Autenticación). Específicamente, contiene los archivos Planes.cpp y Planes.h estos representan diferentes planes de suscripción que un usuario puede tener. Usuario.cpp y Usuario.h representa a los usuarios del sistema y maneja su información personal y de autenticación. Por ello, el directorio otorga las funciones necesarias para el registro, autenticación y administración de planes de suscripción.
 
 - ....Prueba.....
 
-- Directorio web: Contiene los archivos relacionados con la interfaz web del proyecto. Estos archivos incluyen HTML, CSS y JavaScript para crear y estilizar una plataforma intuituva, así como manejar la lógica del lado del cliente para la autenticación y el registro de usuarios. Contiene un subdirectorio "auth" en el cual hay archivos específicos para las páginas de autenticación y registro.
+- Directorio web:
+Contiene los archivos relacionados con la interfaz web del proyecto. Estos archivos incluyen HTML, CSS y JavaScript para crear y estilizar una plataforma intuituva, así como manejar la lógica del lado del cliente para la autenticación y el registro de usuarios. Contiene un subdirectorio "auth" en el cual hay archivos específicos para las páginas de autenticación y registro.
 
 - Demás archivos:
   1. ALL.h: Centraliza la inclusión de cabeceras y la inicialización de datos y objetos esenciales. Define y carga los datos de las películas desde un archivo CSV, haciendo que estos estén disponibles para el resto del proyecto. Configura las suscripciones inciando los objetos que representan diferentes planes de suscripción, permitiendo su uso en cualquier parte del proyecto sin necesidad de re-inicializarlos.
   2. cleanData.h y cleanData.cpp: Contienen en si la lógica para limpiar y procesar datos. Crea la clase "CMovie" la cual representa un formato para almacenar la información de una película. Crea la función "loadCsv" usada para cargar datos de películas desde un archivo CSV y devolver un vector de objetos CMovie. 
   3. CMakeLists.txt: Archivo de configuración de CMake que define cómo debe construirse el proyecto.
-4. librerias.h: Archivo de cabecera que incluye las bibliotecas externas utilizadas en el proyecto.
-5. main.cpp: Archivo principal del programa que contiene la configuración del servidor web.
-6. peliculas.csv: Es nuestro archivo de datos que contiene información de las películas en formato CSV, utilizado para cargar y procesar los datos de las películas.
+  4. librerias.h: Archivo de cabecera que incluye las bibliotecas externas utilizadas en el proyecto.
+  5. main.cpp: Archivo principal del programa que contiene la configuración del servidor web.
+  6. peliculas.csv: Es nuestro archivo de datos que contiene información de las películas en formato CSV, utilizado para cargar y procesar los datos de las películas.
 
 ## Características 
 (usar enums o namespace, manejo de Excepciones en la Solicitud HTTP en main, )
