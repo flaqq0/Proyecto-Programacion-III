@@ -3,26 +3,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const prevButton = document.getElementById('prev-button');
     const nextButton = document.getElementById('next-button');
     let currentPage = 1;
-    const pageSize = 10;
+    const pageSize = 10; // Cantidad de películas por página
 
-    // Función para cargar y mostrar películas
-    function loadMovies(page) {
-        fetch(`/search?query=&page=${page}&page_size=${pageSize}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json(); // Parsear la respuesta JSON
-            })
+    function loadMovies(query, page) {
+        fetch(`/search?query=${query}&page=${page}&page_size=${pageSize}`)
+            .then(response => response.json())
             .then(data => {
-                moviesContainer.innerHTML = ''; // Limpiar contenedor antes de agregar contenido nuevo
+                moviesContainer.innerHTML = '';
                 data.forEach(movie => {
                     const movieCard = document.createElement('div');
-                    movieCard.className = 'movie-card';
-                    movieCard.innerHTML = `
-                        <h2>${movie.title}</h2>
-                        <p>${movie.tags}</p>
-                    `;
+                    movieCard.classList.add('movie-card');
+                    movieCard.textContent = `${movie.title} - ${movie.tags}`;
                     moviesContainer.appendChild(movieCard);
                 });
             })
@@ -31,19 +22,15 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    // Funciones para la paginación
-    prevButton.addEventListener('click', () => {
-        if (currentPage > 1) {
-            currentPage--;
-            loadMovies(currentPage);
-        }
-    });
+    function goToPage(page) {
+        if (page < 1) page = 1;
+        currentPage = page;
+        loadMovies('', currentPage);
+    }
 
-    nextButton.addEventListener('click', () => {
-        currentPage++;
-        loadMovies(currentPage);
-    });
+    prevButton.addEventListener('click', () => goToPage(currentPage - 1));
+    nextButton.addEventListener('click', () => goToPage(currentPage + 1));
 
-    // Cargar la primera página al iniciar
-    loadMovies(currentPage);
+    // Cargar películas en la página inicial
+    loadMovies('', currentPage);
 });
