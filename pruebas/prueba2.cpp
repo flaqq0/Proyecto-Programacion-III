@@ -1,4 +1,4 @@
-#include "MovieSearch.h"
+#include "../MovieSearch.h"
 #include <iostream>
 
 int main() {

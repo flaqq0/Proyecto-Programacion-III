@@ -17,6 +17,7 @@
 #include <stdexcept>
 #include <regex>
 #include <future>
+
 using namespace std;
 
 class Movie {
@@ -57,82 +58,58 @@ public:
     void insert(const string& word, const Movie& movie);
 
     vector<Movie> search(const string& query);
+
 };
 
-template <typename T>
 class Estrategia {
 public:
-    virtual vector<T> search(const vector<T>& items, const string& query) = 0;
+    virtual vector<Movie> search(const vector<Movie>& movies, const string& query) = 0;
 };
 
-template <typename T>
-class PorTitulo : public Estrategia<T> {
+class PorTitulo : public Estrategia {
 public:
-    vector<T> search(const vector<T>& items, const string& query) override {
-        vector<T> res;
-        for (const auto& item : items) {
-            string lowercaseTitle = item.title;
-            transform(lowercaseTitle.begin(), lowercaseTitle.end(), lowercaseTitle.begin(), ::tolower);
-            if (lowercaseTitle.find(query) != string::npos) {
-                res.push_back(item);
-            }
-        }
-        return res;
-    }
+    vector<Movie> search(const vector<Movie>& movies, const string& query) override;
 };
 
-template <typename T>
-class PorTag : public Estrategia<T> {
+class PorTag : public Estrategia {
 public:
-    vector<T> search(const vector<T>& items, const string& query) override {
-        vector<T> res;
-        for (const auto& item : items) {
-            string lowercaseTags = item.tags;
-            transform(lowercaseTags.begin(), lowercaseTags.end(), lowercaseTags.begin(), ::tolower);
-            if (lowercaseTags.find(query) != string::npos) {
-                res.push_back(item);
-            }
-        }
-        return res;
-    }
+    vector<Movie> search(const vector<Movie>& movies, const string& query) override;
 };
 
-template <typename T>
-class PorPlot : public Estrategia<T> {
+class PorPlot : public Estrategia {
 public:
-    vector<T> search(const vector<T>& items, const string& query) override {
-        vector<T> res;
-        for (const auto& item : items) {
-            string lowercasePlot = item.plot_synopsis;
-            transform(lowercasePlot.begin(), lowercasePlot.end(), lowercasePlot.begin(), ::tolower);
-            if (lowercasePlot.find(query) != string::npos) {
-                res.push_back(item);
-            }
-        }
-        return res;
-    }
+    vector<Movie> search(const vector<Movie>& movies, const string& query) override;
 };
 
 class Buscador {
 private:
     vector<Movie> movies;
     unordered_map<string, Movie> movieMap;
-    vector<unique_ptr<Estrategia<Movie>>> strategies;
+    vector<unique_ptr<Estrategia>> strategies;
     Trie titleTrie;
     Trie tagTrie;
     Trie plotTrie;
+    vector<Movie> liked;
+    vector<Movie> later;
 
     Buscador() = default;
     int calcularRelevancia(const Movie& movie, const string& query);
 
+
 public:
     static Buscador& getInstance();
-    void addEstrategia(unique_ptr<Estrategia<Movie>> estrategia);
+    void addEstrategia(unique_ptr<Estrategia> estrategia);
     vector<Movie> buscar(const string& query);
     void loadCSV(const string& path);
 
     template<typename T>
     int contador(const T& text, const T& word);
+
+    void likeMovie(const Movie& movie);
+    void saveLater(const Movie& movie);
+
+    vector<Movie> getLiked() const;
+    vector<Movie> getLater() const;
 };
 
 #endif //PROYECTO_PRUEBA_MOVIESEARCH_H

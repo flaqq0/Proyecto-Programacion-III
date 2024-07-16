@@ -67,19 +67,17 @@ vector<string> splitLinea(const string &l) {
     while (ll.get(c)) {
         if (c == '"' && (actual.empty() || actual.back() != '\\')) {
             comillas = !comillas;
-        } else if (c == ',' && !comillas) {
+        }else if (c == ',' && !comillas) {
             res.push_back(trim(actual));
             actual.clear();
-        } else {
-            actual += c;
-        }
+        } else { actual += c;}
     }
     res.push_back(trim(actual));
 
     return res;
 }
 
-Movie asignar(const string &linea) {
+Movie asignar (const string &linea) {
     vector<string> fields = splitLinea(linea);
     Movie movie;
 
@@ -111,15 +109,11 @@ vector<Movie> readCSV(const string& path) {
                 combl.clear();
             }
         }
-        if (!combl.empty()) {
-            combl += "\n";
-        }
+        if (!combl.empty()) {combl += "\n";}
         combl += linea;
     }
 
-    if (!combl.empty()) {
-        movies.push_back(asignar(combl));
-    }
+    if (!combl.empty()) {movies.push_back(asignar(combl));}
 
     file.close();
     return movies;
@@ -142,11 +136,11 @@ vector<Movie> Buscador::buscar(const string& query) {
     vector<future<vector<Movie>>> futures;
 
     for (const auto& strategy : strategies) {
-        if (dynamic_cast<PorTitulo<Movie>*>(strategy.get())) {
+        if (dynamic_cast<PorTitulo*>(strategy.get())) {
             futures.push_back(async([this, lowerQuery]() { return titleTrie.search(lowerQuery); }));
-        } else if (dynamic_cast<PorTag<Movie>*>(strategy.get())) {
+        } else if (dynamic_cast<PorTag*>(strategy.get())) {
             futures.push_back(async([this, lowerQuery]() { return tagTrie.search(lowerQuery); }));
-        } else if (dynamic_cast<PorPlot<Movie>*>(strategy.get())) {
+        } else if (dynamic_cast<PorPlot*>(strategy.get())) {
             futures.push_back(async([this, lowerQuery]() { return plotTrie.search(lowerQuery); }));
         }
     }
@@ -185,7 +179,7 @@ vector<Movie> Buscador::buscar(const string& query) {
     return top;
 }
 
-void Buscador::addEstrategia(unique_ptr<Estrategia<Movie>> estrategia) {
+void Buscador::addEstrategia(unique_ptr<Estrategia> estrategia) {
     strategies.push_back(move(estrategia));
 }
 
@@ -227,15 +221,55 @@ int Buscador::calcularRelevancia(const Movie& movie, const string& query) {
     return relevance;
 }
 
-template<typename T>
-int Buscador::contador(const T& text, const T& word) {
-    int count = 0;
-    size_t pos = text.find(word);
-    while (pos != T::npos) {
-        count++;
-        pos = text.find(word, pos + word.size());
+
+vector<Movie> PorTitulo::search(const vector<Movie>& movies, const string& query) {
+    vector<Movie> res;
+    for (const auto& movie : movies) {
+        string lowercaseTitle = movie.title;
+        transform(lowercaseTitle.begin(), lowercaseTitle.end(), lowercaseTitle.begin(), ::tolower);
+        if (lowercaseTitle.find(query) != string::npos) {
+            res.push_back(movie);
+        }
     }
-    return count;
+    return res;
 }
 
-template int Buscador::contador<string>(const string& text, const string& word);
+vector<Movie> PorTag::search(const vector<Movie>& movies, const string& query) {
+    vector<Movie> res;
+    for (const auto& movie : movies) {
+        string lowercaseTags = movie.tags;
+        transform(lowercaseTags.begin(), lowercaseTags.end(), lowercaseTags.begin(), ::tolower);
+        if (lowercaseTags.find(query) != string::npos) {
+            res.push_back(movie);
+        }
+    }
+    return res;
+}
+
+vector<Movie> PorPlot::search(const vector<Movie>& movies, const string& query) {
+    vector<Movie> res;
+    for (const auto& movie : movies) {
+        string lowercasePlot = movie.plot_synopsis;
+        transform(lowercasePlot.begin(), lowercasePlot.end(), lowercasePlot.begin(), ::tolower);
+        if (lowercasePlot.find(query) != string::npos) {
+            res.push_back(movie);
+        }
+    }
+    return res;
+}
+
+void Buscador::likeMovie(const Movie &movie) {
+    liked.push_back(movie);
+}
+
+void Buscador::saveLater(const Movie& movie) {
+    later.push_back(movie);
+}
+
+vector<Movie> Buscador::getLiked() const {
+    return liked;
+}
+
+vector<Movie> Buscador::getLater() const {
+    return later;
+}

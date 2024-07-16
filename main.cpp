@@ -2,8 +2,8 @@
 #include <fstream>
 #include <sstream>
 #include <httplib.h>
-#include "pruebas/MovieSearch.h"
-#include "pruebas/MovieSearch.cpp"
+#include "MovieSearch.h"
+#include "MovieSearch.cpp"
 
 using namespace std;
 
