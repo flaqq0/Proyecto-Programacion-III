@@ -1027,7 +1027,7 @@ CMakeFiles/ProyectoLimpio.dir/main.cpp.obj: C:/Users/sofia/Desktop/Documentos/20
   C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/utility \
   C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h \
-  C:/Users/sofia/Desktop/Documentos/2024/progra\ 3/Proyecto-Programacion-III/external/json-nlohmann/json/single_include/nlohmann/json.hpp \
+  C:/Users/sofia/Desktop/Documentos/2024/progra\ 3/Proyecto-Programacion-III/external/json/single_include/nlohmann/json.hpp \
   C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
   C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stream_iterator.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/forward_list \
@@ -1162,8 +1162,6 @@ C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/1
 C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xsavesintrin.h:
-
-C:/Users/sofia/Desktop/Documentos/2024/progra\ 3/Proyecto-Programacion-III/external/json-nlohmann/json/single_include/nlohmann/json.hpp:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h:
 
@@ -2144,6 +2142,8 @@ C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/1
 C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_set:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h:
+
+C:/Users/sofia/Desktop/Documentos/2024/progra\ 3/Proyecto-Programacion-III/external/json/single_include/nlohmann/json.hpp:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/forward_list:
 
