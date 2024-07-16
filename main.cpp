@@ -2,49 +2,42 @@
 #include <fstream>
 #include <sstream>
 #include <httplib.h>
+#include "external\json-nlohmann\json\single_include\nlohmann\json.hpp"
 #include "MovieSearch.h"
 #include "MovieSearch.cpp"
 
 using namespace std;
+using json = nlohmann::json;
 
 string read_file(const string& path) {
     ifstream file(path);
     if (!file.is_open()) {
-        throw runtime_error("Could not open file: " + path);
+        throw runtime_error("No se pudo abrir el archivo: " + path);
     }
     stringstream buffer;
     buffer << file.rdbuf();
     return buffer.str();
 }
 
-// Función para manejar la búsqueda de películas
 void handle_search(const httplib::Request& req, httplib::Response& res) {
     try {
         string query = req.get_param_value("query");
-        int page = stoi(req.get_param_value("page", 1));
-        int page_size = stoi(req.get_param_value("page_size", 10));
-
         Buscador& engine = Buscador::getInstance();
         auto result = engine.buscar(query);
 
-        int start_index = (page - 1) * page_size;
-        int end_index = std::min(start_index + page_size, static_cast<int>(result.size()));
-
-        std::stringstream json_response;
-        json_response << "[";
-        for (int i = start_index; i < end_index; ++i) {
-            const auto& movie = result[i];
-            json_response << "{"
-                          << "\"title\":\"" << movie.title << "\","
-                          << "\"tags\":\"" << movie.tags << "\""
-                          << "}";
-            if (i != end_index - 1) {
-                json_response << ",";
-            }
+        nlohmann::json jsonResponse;
+        for (const auto& movie : result) {
+            jsonResponse.push_back({
+                                           {"imdb_id", movie.imdb_id},
+                                           {"title", movie.title},
+                                           {"plot_synopsis", movie.plot_synopsis},
+                                           {"tags", movie.tags},
+                                           {"split", movie.split},
+                                           {"synopsis_source", movie.synopsis_source}
+                                   });
         }
-        json_response << "]";
 
-        res.set_content(json_response.str(), "application/json");
+        res.set_content(jsonResponse.dump(), "application/json");
     } catch (const std::exception& e) {
         res.status = 500;
         res.set_content("Error interno del servidor: " + std::string(e.what()), "text/plain");
@@ -52,13 +45,11 @@ void handle_search(const httplib::Request& req, httplib::Response& res) {
 }
 
 
-
-// Función para cargar películas desde CSV
 void handle_load_movies(const httplib::Request& req, httplib::Response& res) {
     Buscador& engine = Buscador::getInstance();
 
     try {
-        engine.loadCSV("C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/peliculas.csv");
+        engine.loadCSV("C:/Users/sofia/Desktop/Documentos/2024/progra 3/Proyecto-Programacion-III/peliculas.csv");
         res.set_content("Carga de películas exitosa", "text/plain");
     } catch (const exception& e) {
         res.set_content("Error al cargar CSV: " + string(e.what()), "text/plain");
@@ -68,19 +59,17 @@ void handle_load_movies(const httplib::Request& req, httplib::Response& res) {
 int main() {
     Buscador& engine = Buscador::getInstance();
     try {
-        engine.loadCSV("C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/peliculas.csv");
+        engine.loadCSV("C:/Users/sofia/Desktop/Documentos/2024/progra 3/Proyecto-Programacion-III/peliculas.csv");
     } catch (const exception& e) {
-        cout << "Error loading CSV: " << e.what() << endl;
+        cout << "Error cargando CSV: " << e.what() << endl;
         return 1;
     }
     engine.addEstrategia(make_unique<PorTitulo>());
     engine.addEstrategia(make_unique<PorTag>());
     engine.addEstrategia(make_unique<PorPlot>());
 
-    // Iniciar servidor HTTP
     httplib::Server svr;
 
-    // Configurar rutas estáticas
     svr.Get("/", [](const httplib::Request&, httplib::Response& res) {
         string html = read_file("../web/index.html");
         res.set_content(html, "text/html");
