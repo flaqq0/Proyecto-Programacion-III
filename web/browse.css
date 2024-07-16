@@ -10,6 +10,10 @@ body {
 .container {
     padding: 20px;
 }
+.logo img{
+    width: 58px;
+    height: auto;
+}
 
 h1 {
     font-size: 3em;
