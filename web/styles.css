@@ -21,13 +21,17 @@ body {
     padding: 20px;
     border-radius: 8px;
 }
-h1 {
-    font-size: 7em;
+.logo img {
+    height: 100px;
+    margin-bottom: 20px;
+}
+h2 {
+    font-size: 2.5em;
     margin-bottom: 0.5em;
-    padding: 0.5em; /* Agregamos padding */
-    border: 2px solid #000080; /* Agregamos borde */
-    border-radius: 12px; /* Redondeamos los bordes */
-    background-color: rgba(0, 200, 200, 1); /* Fondo semi-transparente blanco */
+    padding: 0.5em;
+    border: 2px solid #e50914;
+    border-radius: 12px;
+    background-color: rgba(229, 9, 20, 0.7);
 }
 p {
     font-size: 1.2em;
