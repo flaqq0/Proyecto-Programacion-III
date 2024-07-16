@@ -19,32 +19,38 @@ string read_file(const string& path) {
 
 // Función para manejar la búsqueda de películas
 void handle_search(const httplib::Request& req, httplib::Response& res) {
-    string query = req.get_param_value("query");
-    int page = stoi(req.get_param_value("page", 1));
-    int page_size = stoi(req.get_param_value("page_size", 10));
+    try {
+        string query = req.get_param_value("query");
+        int page = stoi(req.get_param_value("page", 1));
+        int page_size = stoi(req.get_param_value("page_size", 10));
 
-    Buscador& engine = Buscador::getInstance();
-    auto result = engine.buscar(query);
+        Buscador& engine = Buscador::getInstance();
+        auto result = engine.buscar(query);
 
-    int start_index = (page - 1) * page_size;
-    int end_index = std::min(start_index + page_size, static_cast<int>(result.size()));
+        int start_index = (page - 1) * page_size;
+        int end_index = std::min(start_index + page_size, static_cast<int>(result.size()));
 
-    std::stringstream json_response;
-    json_response << "[";
-    for (int i = start_index; i < end_index; ++i) {
-        const auto& movie = result[i];
-        json_response << "{"
-                      << "\"title\":\"" << movie.title << "\","
-                      << "\"tags\":\"" << movie.tags << "\""
-                      << "}";
-        if (i != end_index - 1) {
-            json_response << ",";
+        std::stringstream json_response;
+        json_response << "[";
+        for (int i = start_index; i < end_index; ++i) {
+            const auto& movie = result[i];
+            json_response << "{"
+                          << "\"title\":\"" << movie.title << "\","
+                          << "\"tags\":\"" << movie.tags << "\""
+                          << "}";
+            if (i != end_index - 1) {
+                json_response << ",";
+            }
         }
-    }
-    json_response << "]";
+        json_response << "]";
 
-    res.set_content(json_response.str(), "application/json");
+        res.set_content(json_response.str(), "application/json");
+    } catch (const std::exception& e) {
+        res.status = 500;
+        res.set_content("Error interno del servidor: " + std::string(e.what()), "text/plain");
+    }
 }
+
 
 
 // Función para cargar películas desde CSV
@@ -134,6 +140,9 @@ int main() {
         string js = read_file("../web/browse.js");
         res.set_content(js, "application/javascript");
     });
+
+    svr.Get("/search", handle_search);
+    svr.Get("/load_movies", handle_load_movies);
 
     svr.listen("localhost", 8080);
 
