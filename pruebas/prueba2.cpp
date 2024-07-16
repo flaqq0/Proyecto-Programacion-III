@@ -5,7 +5,7 @@ int main() {
     Buscador& engine = Buscador::getInstance();
 
     try {
-        engine.loadCSV("C:/Users/sofia/Desktop/Documentos/2024/progra 3/proyecto-prueba/peliculas.csv");
+        engine.loadCSV("C:/Users/Renat/Downloads/mpst_full_data.csv");
     } catch (const exception& e) {
         cout << "Error loading CSV: " << e.what() << endl;
         return 1;
