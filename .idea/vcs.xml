@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/external/cpp-httplib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/external/json-nlohmann/json" vcs="Git" />
   </component>
 </project>

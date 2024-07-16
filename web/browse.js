@@ -1,36 +1,55 @@
 document.addEventListener('DOMContentLoaded', function () {
     const moviesContainer = document.getElementById('movies-container');
-    const prevButton = document.getElementById('prev-button');
-    const nextButton = document.getElementById('next-button');
+    const loadMoreButton = document.getElementById('load-more-button');
+    const searchButton = document.getElementById('search-button');
+    const searchInput = document.querySelector('.search-container input');
+    let movies = [];
     let currentPage = 1;
-    const pageSize = 10; // Cantidad de películas por página
+    const pageSize = 5; // Cantidad de películas por página
 
-    function loadMovies(query, page) {
-        fetch(`/search?query=${query}&page=${page}&page_size=${pageSize}`)
-            .then(response => response.json())
-            .then(data => {
-                moviesContainer.innerHTML = '';
-                data.forEach(movie => {
-                    const movieCard = document.createElement('div');
-                    movieCard.classList.add('movie-card');
-                    movieCard.textContent = `${movie.title} - ${movie.tags}`;
-                    moviesContainer.appendChild(movieCard);
-                });
-            })
-            .catch(error => {
-                console.error('Error al cargar películas:', error);
-            });
+    async function fetchMovies(query) {
+        try {
+            const response = await fetch(`/search?query=${query}`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            movies = data;
+            currentPage = 1;
+            displayMovies();
+        } catch (error) {
+            console.error('Error fetching movies:', error);
+        }
     }
 
-    function goToPage(page) {
-        if (page < 1) page = 1;
-        currentPage = page;
-        loadMovies('', currentPage);
+    function displayMovies() {
+        const startIndex = (currentPage - 1) * pageSize;
+        const endIndex = startIndex + pageSize;
+        const moviesToShow = movies.slice(startIndex, endIndex);
+
+        moviesContainer.innerHTML = moviesToShow.map(movie => `
+            <div class="movie">
+                <h2>${movie.title}</h2>
+                <p>${movie.plot_synopsis}</p>
+            </div>
+        `).join('');
+
+        if (endIndex < movies.length) {
+            loadMoreButton.style.display = 'block';
+        } else {
+            loadMoreButton.style.display = 'none';
+        }
     }
 
-    prevButton.addEventListener('click', () => goToPage(currentPage - 1));
-    nextButton.addEventListener('click', () => goToPage(currentPage + 1));
+    searchButton.addEventListener('click', () => {
+        const query = searchInput.value.trim();
+        if (query) {
+            fetchMovies(query);
+        }
+    });
 
-    // Cargar películas en la página inicial
-    loadMovies('', currentPage);
+    loadMoreButton.addEventListener('click', () => {
+        currentPage++;
+        displayMovies();
+    });
 });
