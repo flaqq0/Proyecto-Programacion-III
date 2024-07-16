@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     async function fetchMovies(query) {
         const response = await fetch(`/search?query=${encodeURIComponent(query)}`);
         const result = await response.json();
+        console.log("Fetched movies:", result); // Añadir este log
         return result;
     }
 

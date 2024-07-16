@@ -49,7 +49,7 @@ void handle_load_movies(const httplib::Request& req, httplib::Response& res) {
     Buscador& engine = Buscador::getInstance();
 
     try {
-        engine.loadCSV("C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/Proyecto-Programacion-III/peliculas.csv");
+        engine.loadCSV("C:/Users/Renat/CLionProjects/Proyecto-Programacion-III/peliculas.csv");
         //engine.loadCSV("C:/Users/sofia/Desktop/Documentos/2024/progra 3/Proyecto-Programacion-III/peliculas.csv");
         res.set_content("Carga de películas exitosa", "text/plain");
     } catch (const exception& e) {
@@ -60,7 +60,7 @@ void handle_load_movies(const httplib::Request& req, httplib::Response& res) {
 int main() {
     Buscador &engine = Buscador::getInstance();
     try {
-        engine.loadCSV("C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/ProyectoLimpio/Proyecto-Programacion-III/peliculas.csv");
+        engine.loadCSV("C:/Users/Renat/CLionProjects/Proyecto-Programacion-III/peliculas.csv");
         //engine.loadCSV("C:/Users/sofia/Desktop/Documentos/2024/progra 3/Proyecto-Programacion-III/peliculas.csv");
     } catch (const exception &e) {
         cout << "Error cargando CSV: " << e.what() << endl;
@@ -161,16 +161,6 @@ int main() {
         string js = read_file("../web/later.js");
         res.set_content(js, "application/javascript");
     });
-
-    svr.Get("/navBar/NavBar.css", [](const httplib::Request&, httplib::Response& res) {
-        string css = read_file("../web/navBar/NavBar.css");
-        res.set_content(css, "text/css");
-    });
-    svr.Get("/navBar/NavBar.js", [](const httplib::Request&, httplib::Response& res) {
-        string js = read_file("../web/navBar/NavBar.js");
-        res.set_content(js, "application/javascript");
-    });
-
 
     svr.Get("/search", handle_search);
     svr.Get("/load_movies", handle_load_movies);
