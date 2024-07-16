@@ -25,14 +25,6 @@ body {
     height: 100px;
     margin-bottom: 20px;
 }
-h2 {
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
-    padding: 0.5em;
-    border: 2px solid #e50914;
-    border-radius: 12px;
-    background-color: rgba(229, 9, 20, 0.7);
-}
 p {
     font-size: 1.2em;
     margin-bottom: 1em;

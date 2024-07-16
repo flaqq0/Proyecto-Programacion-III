@@ -10,22 +10,27 @@
     <script src="/browse.js" defer></script>
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">
-            <img src="UTECFLIX.jpg" alt="UTECFLIX Logo">
+    <div class="pinning-header" style="position: sticky;top:0;height: auto;min-height: 70px;z-index: 1">
+        <div class="pinning-header-container" style="background: transparent;">
+            <div id="clcsBanner" style="overflow: auto"></div>
+            <div class="main-header has-billboard menu-navigation" role="navigation">
+                <a href="/browse" class="logo">
+                    <img src="../web/UTECFLIX.jpg" alt="UTECFLIX Logo">
+                </a>
+                <ul class="tabbed-primary-navigation">
+                    <li class="navigation-tab">
+                        <a href="/browse" class="current active">Buscar</a>
+                    </li>
+                    <li class="navigation-tab">
+                        <a href="/browse/list">Ver mas tarde</a>
+                    </li>
+                    <li class="navigation-tab">
+                        <a href="/browse/likes">Mis me gusta</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <nav class="nav-links">
-            <ul>
-                <li><a href="#later">Ver más tarde</a></li>
-                <li><a href="#liked">Me gusta</a></li>
-                <li><a href="#search">Buscar</a></li>
-            </ul>
-        </nav>
-        <div class="search-container">
-            <input type="text" placeholder="Buscar...">
-            <button id="search-button">🔍</button>
-        </div>
-    </header>
+    </div>
 <div class="container">
     <h1>Browse Movies</h1>
     <div id="movies-container">
