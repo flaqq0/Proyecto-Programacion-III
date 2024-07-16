@@ -10,7 +10,10 @@ Proyecto final del curso de Programación III de la Universidad de Ingeniería y
 ## Presentación
 Link del video: [https://drive.google.com/grupo4](https://www.canva.com/design/DAGLEqs5rdg/LyzVFDic1kS1pPIzpuWHfg/view?utm_content=DAGLEqs5rdg&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
-Para poder visualizar la parte gráfica del proyecto, se debe runear el main y una vez esté funcionando, ingresar a http://localhost:8080/
+Para poder visualizar la parte gráfica del proyecto, se debe:
+1. Clonar las librerías https://github.com/yhirose/cpp-httplib y https://github.com/nlohmann/json.git en la carpeta "external"
+2. Hacer reload al CMakeLists
+3. Runear el main y una vez esté funcionando, ingresar a http://localhost:8080/
 
 ## Descripción del Proyecto
 El proyecto consiste en desarrollar una plataforma de streaming que permita la búsqueda y visualización de películas. El programa lee la base de datos indicada en formato .csv, esta se encuentra almacenada en un vector (vector<Movie>), una estructura de datos eficiente para la búsqueda rápida y permite buscar películas por palabras clave o tags específicos. La plataforma muestra las cinco películas más relevantes y proporciona opciones para visualizar más coincidencias.
