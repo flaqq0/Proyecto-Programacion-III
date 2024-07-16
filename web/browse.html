@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browse Movies</title>
+    <link rel="stylesheet" href="navBar/NavBar.css">
     <link rel="stylesheet" href="/browse.css">
+    <script src="navBar/NavBar.js" defer></script>
     <script src="/browse.js" defer></script>
 </head>
 <body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="utecflix-logo.png" alt="UTECFLIX Logo">
+        </div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#later">Ver más tarde</a></li>
+                <li><a href="#liked">Me gusta</a></li>
+                <li><a href="#search">Buscar</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" placeholder="Buscar...">
+            <button id="search-button">🔍</button>
+        </div>
+    </header>
 <div class="container">
     <h1>Browse Movies</h1>
     <div id="movies-container">

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Renat/CLionProjects/Proyecto-Programacion-III/external/cpp-httplib
+# Install script for directory: C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/external/cpp-httplib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,18 +34,18 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Program Files/JetBrains/CLion 2024.1.4/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "C:/Users/Renat/CLionProjects/Proyecto-Programacion-III/external/cpp-httplib/httplib.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/external/cpp-httplib/httplib.h")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/httplib" TYPE FILE FILES
-    "C:/Users/Renat/CLionProjects/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/httplibConfig.cmake"
-    "C:/Users/Renat/CLionProjects/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/httplibConfigVersion.cmake"
-    "C:/Users/Renat/CLionProjects/Proyecto-Programacion-III/external/cpp-httplib/cmake/FindBrotli.cmake"
+    "C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/httplibConfig.cmake"
+    "C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/httplibConfigVersion.cmake"
+    "C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/external/cpp-httplib/cmake/FindBrotli.cmake"
     )
 endif()
 
@@ -53,7 +53,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/httplib/httplibTargets.cmake")
     file(DIFFERENT _cmake_export_file_changed FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/httplib/httplibTargets.cmake"
-         "C:/Users/Renat/CLionProjects/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/CMakeFiles/Export/0c9c21465635b294edae171b02b1b3b9/httplibTargets.cmake")
+         "C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/CMakeFiles/Export/0c9c21465635b294edae171b02b1b3b9/httplibTargets.cmake")
     if(_cmake_export_file_changed)
       file(GLOB _cmake_old_config_files "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/httplib/httplibTargets-*.cmake")
       if(_cmake_old_config_files)
@@ -66,14 +66,14 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     endif()
     unset(_cmake_export_file_changed)
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/httplib" TYPE FILE FILES "C:/Users/Renat/CLionProjects/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/CMakeFiles/Export/0c9c21465635b294edae171b02b1b3b9/httplibTargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/httplib" TYPE FILE FILES "C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/cmake-build-debug/external/cpp-httplib/CMakeFiles/Export/0c9c21465635b294edae171b02b1b3b9/httplibTargets.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/httplib" TYPE FILE FILES "C:/Users/Renat/CLionProjects/Proyecto-Programacion-III/external/cpp-httplib/README.md")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/httplib" TYPE FILE FILES "C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/external/cpp-httplib/README.md")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/licenses/httplib" TYPE FILE FILES "C:/Users/Renat/CLionProjects/Proyecto-Programacion-III/external/cpp-httplib/LICENSE")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/licenses/httplib" TYPE FILE FILES "C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/external/cpp-httplib/LICENSE")
 endif()
 

@@ -52,7 +52,7 @@ void handle_load_movies(const httplib::Request& req, httplib::Response& res) {
     Buscador& engine = Buscador::getInstance();
 
     try {
-        engine.loadCSV("C:/Users/Renat/Downloads/mpst_full_data.csv");
+        engine.loadCSV("C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/peliculas.csv");
         res.set_content("Carga de películas exitosa", "text/plain");
     } catch (const exception& e) {
         res.set_content("Error al cargar CSV: " + string(e.what()), "text/plain");
@@ -62,7 +62,7 @@ void handle_load_movies(const httplib::Request& req, httplib::Response& res) {
 int main() {
     Buscador& engine = Buscador::getInstance();
     try {
-        engine.loadCSV("C:/Users/Renat/Downloads/mpst_full_data.csv");
+        engine.loadCSV("C:/Users/Usuario/Desktop/Utec/2024-1/PrograIII/PROYECTOFINAL/Proyecto-Programacion-III/peliculas.csv");
     } catch (const exception& e) {
         cout << "Error loading CSV: " << e.what() << endl;
         return 1;
